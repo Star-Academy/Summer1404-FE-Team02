@@ -1,9 +1,18 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   font-size: 62.5%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 body {
-  padding: 0;
-  margin: 0;
-  font-size: 2rem;
+  font-size: 1.6rem;
+  background-color: #0e0e0e;
+  color: #f1f1f1;
 }

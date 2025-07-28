@@ -1,0 +1,13 @@
+footer {
+  background-color: #1a1a1a;
+  text-align: center;
+  height: 7rem;
+  color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1/-1;
+  border-start-start-radius: 1rem;
+  border-start-end-radius: 1rem;
+  box-shadow: 0 -2px 8px rgba(255, 255, 255, 0.06);
+}

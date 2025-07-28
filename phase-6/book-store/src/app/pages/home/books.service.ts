@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Book } from './books/books.model';
+import { BOOKS } from './books/DUMMY_BOOKS';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BooksService {
-  private books = JSON.parse('../../../books.json') as Book[];
+  private books = BOOKS;
 
   get getAllBooks() {
     return this.books;

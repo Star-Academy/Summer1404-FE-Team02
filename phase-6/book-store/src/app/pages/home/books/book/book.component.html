@@ -1,13 +1,24 @@
-<article>
+<article class="book-article">
   <div class="book-wrapper">
     <div class="book-img-wrapper">
-      <img class="book-img" alt="${book.name}" loading="lazy" width="200" height="300" />
+      <img
+        class="book-img"
+        [src]="book.image"
+        alt="${book.name}"
+        loading="lazy"
+        width="200"
+        height="300"
+      />
     </div>
     <div class="book-content">
-      <h3>book name</h3>
-      <div class="book-content-header">
-        <p>book price</p>
-      </div>
+      <h3 class="book-title">{{ book.name }}</h3>
+      <p class="book-author">{{ book.author }}</p>
+      <p class="book-genre" [innerHTML]="bookGenres"></p>
+      <p class="book-publish">
+        Published:
+        <time datetime="${book.publishData}">{{ formattedDate }}</time>
+      </p>
+      <p class="book-price"><span>$</span>{{ book.price }}</p>
     </div>
   </div>
 </article>

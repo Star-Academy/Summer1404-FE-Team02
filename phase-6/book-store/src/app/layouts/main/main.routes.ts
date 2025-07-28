@@ -1,8 +1,18 @@
-import {HomeComponent} from '../../pages/home/home.component';
+import { Routes } from '@angular/router';
+import { HomeComponent } from '../../pages/home/home.component';
+import { MainComponent } from './main.component';
 
-export const mainRoutes = [
+export const mainRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: MainComponent,
+    children: [
+      { path: 'home', redirectTo: '', pathMatch: 'full' },
+      {
+        title: 'Book Store page',
+        path: '',
+        component: HomeComponent,
+      },
+    ],
   },
 ];

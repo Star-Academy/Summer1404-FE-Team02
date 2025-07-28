@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { MainComponent } from './layouts/main/main.component';
 import { MainModule } from './layouts/main/main.module';
+import { PanelModule } from './layouts/panel/panel.module';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -14,6 +15,7 @@ import { MainModule } from './layouts/main/main.module';
     RouterOutlet,
     BrowserModule,
     MainModule,
+    PanelModule,
   ],
 })
 export class AppModule {}

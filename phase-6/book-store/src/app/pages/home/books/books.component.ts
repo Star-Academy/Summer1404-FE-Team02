@@ -1,16 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { BookComponent } from './book/book.component';
 import { BooksService } from '../books.service';
+import { BookCardComponent } from './book-card/book-card.component';
 
 @Component({
   selector: 'app-books',
   standalone: true,
-  imports: [BookComponent],
+  imports: [BookCardComponent],
   templateUrl: './books.component.html',
   styleUrl: './books.component.css',
 })
 export class BooksComponent {
   booksService = inject(BooksService);
-
-  
 }

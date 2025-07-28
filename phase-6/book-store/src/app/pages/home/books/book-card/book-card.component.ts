@@ -5,10 +5,10 @@ import { type Book } from '../books.model';
   selector: 'app-book',
   standalone: true,
   imports: [],
-  templateUrl: './book.component.html',
-  styleUrl: './book.component.css',
+  templateUrl: './book-card.component.html',
+  styleUrl: './book-card.component.css',
 })
-export class BookComponent {
+export class BookCardComponent {
   @Input({ required: true }) book!: Book;
 
   get bookGenres() {

@@ -1,10 +1,8 @@
-import { combineLatest } from 'rxjs';
-import { HomeComponent } from '../../pages/home/home.component';
-import { Component } from '@angular/core';
+import {HomeComponent} from '../../pages/home/home.component';
 
 export const mainRoutes = [
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
   },
 ];

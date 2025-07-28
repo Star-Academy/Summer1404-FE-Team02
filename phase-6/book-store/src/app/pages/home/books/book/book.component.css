@@ -1,0 +1,32 @@
+.book-article {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.1);
+  background-color: aliceblue;
+}
+
+.book-article .book-img-wrapper .book-img {
+    display: block;
+    width: 100%;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.book-article .book-img-wrapper .book-img:hover {
+  transform: scale(1.1);
+}
+
+
+.book-article .book-content {
+  padding: 1rem;
+}
+
+.book-article .book-content .book-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.book-article .book-content .book-content-header p {
+  color: red;
+}

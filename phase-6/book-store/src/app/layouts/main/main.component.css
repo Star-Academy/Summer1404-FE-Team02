@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header, footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6rem;
+  background: #ccc;
+}
+
+main {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex: 1;
+  overflow: auto;
+}

@@ -1,0 +1,43 @@
+import { Component, OnInit, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Book } from '../home/books/books.model';
+import { BooksService } from '../home/books.service';
+
+@Component({
+  selector: 'app-book-detail',
+  templateUrl: './book-detail.component.html',
+  styleUrls: ['./book-detail.component.css'],
+  standalone: true,
+})
+export class BookDetailComponent implements OnInit {
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+  private booksService = inject(BooksService);
+
+  bookId: string | null = null;
+  book!: Book;
+
+  ngOnInit(): void {
+    this.bookId = this.route.snapshot.paramMap.get('bookId');
+
+    if (this.bookId) {
+      const found = this.booksService.getAllBooks.find(
+        (book) => book.id === this.bookId
+      );
+
+      if (found) {
+        this.book = found;
+      } else {
+        this.router.navigate(['/'], { replaceUrl: true });
+      }
+    }
+  }
+
+  get formattedDate(): string {
+    return new Date(this.book.publishData).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  }
+}

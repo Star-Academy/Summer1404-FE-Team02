@@ -32,6 +32,7 @@
 
 .book-wrapper .book-img-wrapper .book-img:hover {
   transform: scale(1.08);
+  display: block;
 }
 
 .book-wrapper .book-content {

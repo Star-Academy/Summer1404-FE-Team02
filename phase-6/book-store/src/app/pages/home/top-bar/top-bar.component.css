@@ -1,5 +1,49 @@
-nav {
+:host .book-toolbar {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0 2rem;
+
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+:host .book-toolbar input {
+  height: 4rem;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 60rem;
+  max-width: 100%;
+  outline: none;
+
+  background-color: transparent;
+  color: white;
+  border: 1px solid #444;
+}
+
+:host .book-toolbar select {
+  height: 4rem;
+  font-size: 1.6rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 20rem;
+  max-width: 100%;
+
+  background-color: #0e0e0e;
+  color: white;
+  border: 1px solid #444;
+}
+
+:host .book-toolbar label {
+  margin-right: 0.5rem;
+  font-size: 1.4rem;
+  color: #ccc;
+}
+
+:host .sort-wrapper {
+  display: flex;
   align-items: center;
 }

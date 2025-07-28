@@ -1,10 +1,14 @@
-<nav>
-  <input type="text" placeholder="searching...">
+<nav class="book-toolbar">
+  <div class="sort-wrapper">
+    <label for="book-sort">Sort by:</label>
+    <select id="book-sort" name="sort">
+      <option value="" disabled selected>Select an option</option>
+      <option value="oldest">Oldest</option>
+      <option value="newest">Newest</option>
+      <option value="most-expensive">Most Expensive</option>
+      <option value="cheapest">Cheapest</option>
+    </select>
+  </div>
 
-  <select>
-    <option>A</option>
-    <option>B</option>
-    <option>C</option>
-    <option>D</option>
-  </select>
+  <input type="text" placeholder="Search..." />
 </nav>

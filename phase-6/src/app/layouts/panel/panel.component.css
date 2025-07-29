@@ -138,6 +138,7 @@ button {
   background-color: rgba(255, 0, 0, 5%);
   width: 4rem;
   height: 4rem;
+  cursor: pointer;
 }
 
 .add-book__edit-btn {
@@ -145,6 +146,7 @@ button {
   background-color: rgba(59, 130, 246, 10%);
   width: 4rem;
   height: 4rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1000px) {

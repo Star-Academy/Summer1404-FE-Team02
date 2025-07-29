@@ -35,4 +35,8 @@ export class AddBookComponent {
 
     this.onCancel();
   }
+
+  onCloseModal(event: MouseEvent) {
+    if (event.target === event.currentTarget) this.onCancel();
+  }
 }

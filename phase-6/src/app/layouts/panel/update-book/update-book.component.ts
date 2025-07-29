@@ -42,4 +42,8 @@ export class UpdateBookComponent implements OnChanges {
       }
     }
   }
+  
+  onCloseModal(event: MouseEvent) {
+    if (event.target === event.currentTarget) this.onCancel();
+  }
 }

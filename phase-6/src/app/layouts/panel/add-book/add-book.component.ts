@@ -1,15 +1,13 @@
-import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
-import {FormsModule} from "@angular/forms";
-import {BooksService} from "../../../pages/home/books.service";
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BooksService } from '../../../services/books.service';
 
 @Component({
   selector: 'app-add-book',
   standalone: true,
-    imports: [
-        FormsModule
-    ],
+  imports: [FormsModule],
   templateUrl: './add-book.component.html',
-  styleUrl: '../shared/shared.component.css'
+  styleUrl: '../shared/shared.component.css',
 })
 export class AddBookComponent {
   booksService = inject(BooksService);
@@ -35,6 +33,6 @@ export class AddBookComponent {
       image: 'https://picsum.photos/200/300',
     });
 
-   this.onCancel();
+    this.onCancel();
   }
 }

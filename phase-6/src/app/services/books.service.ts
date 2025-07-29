@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Book } from './books/books.model';
-import { BOOKS } from './books/DUMMY_BOOKS';
+import { Book } from '../pages/home/books/books.model';
+import { BOOKS } from '../pages/home/books/DUMMY_BOOKS';
 
 @Injectable({
   providedIn: 'root',

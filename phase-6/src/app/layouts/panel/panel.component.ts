@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { BooksService } from '../../pages/home/books.service';
+import { BooksService } from '../../services/books.service';
 
 @Component({
   selector: 'app-panel',
@@ -23,7 +23,7 @@ export class PanelComponent {
 
   setSelectedId(id: string) {
     this.selectedId = id;
-    this.changeModalEditStatus()
+    this.changeModalEditStatus();
   }
 
   removeBook(id: string) {

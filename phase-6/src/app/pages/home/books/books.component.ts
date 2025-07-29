@@ -1,7 +1,7 @@
-import {Component, DoCheck, inject, OnInit} from '@angular/core';
-import { BooksService } from '../books.service';
+import { Component, DoCheck, inject, OnInit } from '@angular/core';
+import { BooksService } from '../../../services/books.service';
 import { BookCardComponent } from './book-card/book-card.component';
-import {Book} from "./books.model";
+import { Book } from './books.model';
 
 @Component({
   selector: 'app-books',

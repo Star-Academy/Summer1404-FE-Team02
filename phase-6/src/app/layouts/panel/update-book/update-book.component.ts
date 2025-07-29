@@ -8,7 +8,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BooksService } from '../../../pages/home/books.service';
+import { BooksService } from '../../../services/books.service';
 import { Book } from '../../../pages/home/books/books.model';
 
 @Component({

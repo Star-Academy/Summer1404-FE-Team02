@@ -6,16 +6,15 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  grid-column: 1/-1;
-  border-end-start-radius: 1rem;
-  border-end-end-radius: 1rem;
   box-shadow: 0 -0.2rem 0.8rem rgba(255, 255, 255, 0.35);
+  padding: 0 2rem;
 }
 
 div {
-  width: 60%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 10rem;
+  width: 100%;
 }
 
 a {
@@ -24,5 +23,12 @@ a {
 }
 
 a.active {
-  box-shadow: 0.2rem 0.2rem 2.7rem 0.9rem rgba(255,255,255,0.55);
+  box-shadow: 0.2rem 0.2rem 2.7rem 0.9rem rgba(255, 255, 255, 0.55);
+}
+
+@media screen and (max-width: 750px) {
+  div {
+    gap: 0;
+    justify-content: space-between;
+  }
 }

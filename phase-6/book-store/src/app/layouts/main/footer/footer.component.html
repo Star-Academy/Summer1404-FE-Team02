@@ -1,10 +1,8 @@
 <footer>
-  <div id="outer-div">
-    <p>&copy; 2025 My Website</p>
-    <div id="inner-div">
-      @for (link of links; track link.title) {
-        <a [href]="link.src">{{ link.title }}</a>
-      }
-    </div>
+  <p>&copy; 2025 My Website</p>
+  <div id="inner-div">
+    @for (link of links; track link.title) {
+    <a [href]="link.src">{{ link.title }}</a>
+    }
   </div>
 </footer>

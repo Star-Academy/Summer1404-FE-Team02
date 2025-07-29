@@ -7,15 +7,25 @@ import { BOOKS } from './books/DUMMY_BOOKS';
 })
 export class BooksService {
   private books = BOOKS;
-  search = "";
+  search = '';
+
+  constructor() {
+    const isExistBooks = localStorage.getItem('books');
+    if (isExistBooks) {
+      this.books = JSON.parse(isExistBooks);
+    }
+  }
 
   get getAllBooks() {
-    if (this.search === "") {
-      return this.books;
-    }
-    else {
-      return this.books.filter((book: Book) => book.name.toLowerCase().includes(this.search));
-    }
+    if (this.search === '') return this.books;
+
+    return this.books.filter((book: Book) =>
+      book.name.toLowerCase().includes(this.search)
+    );
+  }
+
+  private saveBooks() {
+    localStorage.setItem('books', JSON.stringify(this.books));
   }
 
   selectedBook(bookId: string) {
@@ -24,14 +34,16 @@ export class BooksService {
 
   deleteBook(bookId: string) {
     this.books = this.books.filter((book) => book.id !== bookId);
+    this.saveBooks();
   }
 
   addBook(bookData: Book) {
     this.books.push(bookData);
+    this.saveBooks();
   }
 
   setSearchValue(search: string) {
-    console.log()
+    console.log();
     this.search = search;
   }
 

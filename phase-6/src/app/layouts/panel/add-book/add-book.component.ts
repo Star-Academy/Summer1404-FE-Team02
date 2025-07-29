@@ -9,6 +9,7 @@ import { BooksService } from '../../../services/books.service';
   templateUrl: './add-book.component.html',
   styleUrl: '../shared/shared.component.css',
 })
+
 export class AddBookComponent {
   booksService = inject(BooksService);
 
@@ -39,4 +40,5 @@ export class AddBookComponent {
   onCloseModal(event: MouseEvent) {
     if (event.target === event.currentTarget) this.onCancel();
   }
+
 }

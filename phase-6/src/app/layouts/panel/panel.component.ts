@@ -6,15 +6,16 @@ import { BooksService } from '../../services/books.service';
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.css',
 })
+
 export class PanelComponent {
   booksService = inject(BooksService);
 
   selectedId!: string;
+  bookName!: string;
+
   isModalAddOpen = false;
   isModalEditOpen = false;
-  isDeleteDiologOpen = false;
-  // isDeleting = false;
-  // isDeleteAccepted = false;
+  isDeleteDialogOpen = false;
 
   changeModalAddStatus() {
     this.isModalAddOpen = !this.isModalAddOpen;
@@ -24,24 +25,26 @@ export class PanelComponent {
     this.isModalEditOpen = !this.isModalEditOpen;
   }
 
-  setSelectedId(id: string) {
+  changeDialogDeleteStatus() {
+    this.isDeleteDialogOpen = !this.isDeleteDialogOpen;
+  }
+
+  setSelectedEditId(id: string) {
     this.selectedId = id;
     this.changeModalEditStatus();
   }
 
-  // onDeleteDialog(id: string) {
-  //   this.changeModalAddStatus();
+  setSelectedDeleteId(id: string, name: string) {
+    this.selectedId = id;
+    this.bookName = name;
+    this.changeDialogDeleteStatus();
+  }
 
-  //   this.isDeleting = true;
+  onDelete(isAccept: boolean) {
+    this.changeDialogDeleteStatus();
 
-  //   while (this.isDeleting) {
-  //     // do nothing
-  //   }
-
-  //   this.booksService.deleteBook(id);
-  // }
-
-  // onDeleteAccepted() {
-  //   this.changeModalAddStatus();
-  // }
+    if(isAccept) {
+      this.booksService.deleteBook(this.selectedId);
+    }
+  }
 }

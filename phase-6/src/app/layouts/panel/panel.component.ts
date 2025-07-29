@@ -8,27 +8,22 @@ import { BooksService } from '../../pages/home/books.service';
 })
 export class PanelComponent {
   booksService = inject(BooksService);
-  isModalOpen = false;
 
-  name = '';
-  genre = '';
-  price = 0;
+  selectedId!: string;
+  isModalAddOpen = false;
+  isModalEditOpen = false;
 
-  changeModalStatus() {
-    this.isModalOpen = !this.isModalOpen;
+  changeModalAddStatus() {
+    this.isModalAddOpen = !this.isModalAddOpen;
   }
 
-  addBook() {
-    this.booksService.addBook({
-      name: this.name,
-      price: this.price,
-      genre: [...this.genre],
-      id: new Date().getDate().toString(),
-      publishData: new Date().toString(),
-      author: this.name,
-      image: 'https://picsum.photos/200/300',
-    });
-    this.isModalOpen = !this.isModalOpen;
+  changeModalEditStatus() {
+    this.isModalEditOpen = !this.isModalEditOpen;
+  }
+
+  setSelectedId(id: string) {
+    this.selectedId = id;
+    this.changeModalEditStatus()
   }
 
   removeBook(id: string) {

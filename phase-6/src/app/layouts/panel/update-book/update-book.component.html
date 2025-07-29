@@ -1,7 +1,7 @@
 <div class="modal-overlay">
   <div class="modal">
     <div class="modal-book-header">
-      <h2>Add Book</h2>
+      <h2>Edit Book</h2>
       <button class="modal-close" (click)="onCancel()">
         <svg
           width="20px"
@@ -19,18 +19,18 @@
         </svg>
       </button>
     </div>
-    <form (submit)="addBook()" class="modal-book__form">
+    <form (submit)="onUpdateBook()" class="modal-book__form">
       <label>
         <span class="modal-book__form__label">Name:</span>
-        <input type="text" [(ngModel)]="name" name="name" />
+        <input type="text" [(ngModel)]="book.name" name="name" />
       </label>
       <label>
         <span class="modal-book__form__label">Genre:</span>
-        <input type="text" [(ngModel)]="genre" name="genre" />
+        <input type="text" [(ngModel)]="book.genre" name="genre" />
       </label>
       <label>
         <span class="modal-book__form__label">Price:</span>
-        <input type="number" [(ngModel)]="price" name="price" />
+        <input type="number" [(ngModel)]="book.price" name="price" />
       </label>
       <div class="modal-actions">
         <button type="button" (click)="onCancel()">Cancel</button>

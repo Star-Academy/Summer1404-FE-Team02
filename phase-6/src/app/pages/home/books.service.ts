@@ -50,4 +50,12 @@ export class BooksService {
   getSearchValue(): string {
     return this.search;
   }
+
+  updateBook(updatedBook: Book) {
+    const index = this.books.findIndex(book => book.id === updatedBook.id);
+    if (index !== -1) {
+      this.books[index] = updatedBook;
+      this.saveBooks();
+    }
+  }
 }

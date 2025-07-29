@@ -16,7 +16,7 @@
       <p class="book-genre" [innerHTML]="bookGenres"></p>
       <p class="book-publish">
         Published:
-        <time datetime="${book.publishData}">{{ formattedDate }}</time>
+        <time datetime="${book.publishData}">{{ book.publishData | date }}</time>
       </p>
       <p class="book-price"><span>$</span>{{ book.price }}</p>
     </div>

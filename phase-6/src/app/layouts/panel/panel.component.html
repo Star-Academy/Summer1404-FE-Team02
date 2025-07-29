@@ -19,6 +19,7 @@
           <th>Action</th>
         </tr>
       </thead>
+      @if (booksService.getAllBooks.length) {
       <tbody>
         @for (book of booksService.getAllBooks; track book.id) {
         <tr>
@@ -76,6 +77,11 @@
         </tr>
         }
       </tbody>
+      } @else {
+      <tr>
+        <td colspan="5" style="text-align: center; color: gray"></td>
+      </tr>
+      }
     </table>
   </div>
 </div>

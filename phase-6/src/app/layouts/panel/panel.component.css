@@ -6,7 +6,8 @@
   align-items: center;
   justify-content: center;
   background-color: #121212;
-  padding: 5rem 10rem;
+  padding-inline: 10rem;
+  padding-block: 5rem;
   gap: 2rem;
   box-sizing: border-box;
   overflow: hidden;
@@ -130,4 +131,15 @@ button {
   cursor: pointer;
   border: none;
   width: 15rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .table-wrapper {
+    padding-inline: 2rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .table-wrapper {
+    padding-inline: 1rem;
+  }
 }

@@ -12,6 +12,9 @@ export class PanelComponent {
   selectedId!: string;
   isModalAddOpen = false;
   isModalEditOpen = false;
+  isDeleteDiologOpen = false;
+  // isDeleting = false;
+  // isDeleteAccepted = false;
 
   changeModalAddStatus() {
     this.isModalAddOpen = !this.isModalAddOpen;
@@ -26,7 +29,19 @@ export class PanelComponent {
     this.changeModalEditStatus();
   }
 
-  removeBook(id: string) {
-    this.booksService.deleteBook(id);
-  }
+  // onDeleteDialog(id: string) {
+  //   this.changeModalAddStatus();
+
+  //   this.isDeleting = true;
+
+  //   while (this.isDeleting) {
+  //     // do nothing
+  //   }
+
+  //   this.booksService.deleteBook(id);
+  // }
+
+  // onDeleteAccepted() {
+  //   this.changeModalAddStatus();
+  // }
 }

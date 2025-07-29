@@ -2,6 +2,8 @@
 <app-add-book (closeModal)="changeModalAddStatus()" />
 } @if (isModalEditOpen) {
 <app-update-book (closeModal)="changeModalEditStatus()" [id]="selectedId" />
+} @if (isDeleteDiologOpen) {
+<app-delete-dialog (close)="onOpenDeleteModal()" [bookTitle]="selectedId" />
 }
 
 <div class="table-wrapper modal-backdrop">

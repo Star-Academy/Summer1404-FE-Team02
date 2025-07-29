@@ -1,1 +1,7 @@
-<header>header</header>
+<header>
+  <div>
+    @for (link of links; track link.title) {
+      <a [href]="link.src">{{ link.title }}</a>
+    }
+  </div>
+</header>

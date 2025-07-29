@@ -6,19 +6,19 @@
   max-width: 100%;
   background-color: rgba(255, 255, 255, 0.03);
   border-radius: 1rem;
-  box-shadow: 0 0 16px rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 1.6rem rgba(255, 255, 255, 0.04);
 }
 
 .book-detail__image-wrapper {
   flex: 0 0 auto;
-  max-width: 300px;
+  max-width: 30rem;
 }
 
 .book-detail__image {
   width: 100%;
   border-radius: 1rem;
   object-fit: cover;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 1rem rgba(255, 255, 255, 0.1);
 }
 
 .book-detail__content {
@@ -42,7 +42,7 @@
   background-color: #222;
   color: #ccc;
   padding: 0.3rem 0.7rem;
-  border-radius: 999px;
+  border-radius: 99.9rem;
   font-size: 0.85rem;
   margin-right: 0.5rem;
   display: inline-block;

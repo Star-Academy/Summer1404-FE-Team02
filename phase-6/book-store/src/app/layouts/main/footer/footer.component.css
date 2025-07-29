@@ -9,5 +9,25 @@ footer {
   grid-column: 1/-1;
   border-start-start-radius: 1rem;
   border-start-end-radius: 1rem;
-  box-shadow: 0 -2px 8px rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0.2rem 0.8rem rgba(255, 255, 255, 0.35);
+}
+
+#outer-div {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+}
+
+#inner-div {
+  display: flex;
+  gap: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: #f1f1f1;
+}
+
+a.active {
+  box-shadow: 0.2rem 0.2rem 2.7rem 0.9rem rgba(255,255,255,0.55);
 }

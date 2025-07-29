@@ -9,5 +9,20 @@ header {
   grid-column: 1/-1;
   border-end-start-radius: 1rem;
   border-end-end-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.06);
+  box-shadow: 0 -0.2rem 0.8rem rgba(255, 255, 255, 0.35);
+}
+
+div {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+a {
+  text-decoration: none;
+  color: #f1f1f1;
+}
+
+a.active {
+  box-shadow: 0.2rem 0.2rem 2.7rem 0.9rem rgba(255,255,255,0.55);
 }

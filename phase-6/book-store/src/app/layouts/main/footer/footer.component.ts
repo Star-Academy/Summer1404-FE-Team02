@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {HEADER_LINK} from "../header/HEADER_LINK";
 
 @Component({
   selector: 'app-footer',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-
+  links = HEADER_LINK;
 }

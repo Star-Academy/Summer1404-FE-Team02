@@ -1,1 +1,55 @@
-<p>panel works!</p>
+<div class="table-wrapper modal-backdrop">
+  <button (click)="changeModalStatus()">Add book</button>
+
+  @if (isModalOpen) {
+    <div class="modal-overlay">
+      <div class="modal">
+        <button class="modal-close" (click)="changeModalStatus()">×</button>
+        <h2>Add Book</h2>
+        <form (submit)="addBook()">
+          <label>
+            Name:
+            <input type="text" [(ngModel)]="name" name="name">
+          </label>
+          <label>
+            Genre:
+            <input type="text" [(ngModel)]="genre" name="genre"/>
+          </label>
+          <label>
+            Price:
+            <input type="number" [(ngModel)]="price" name="price"/>
+          </label>
+          <div class="modal-actions">
+            <button type="button" (click)="changeModalStatus()">Cancel</button>
+            <button type="submit">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  }
+
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Genre</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (book of booksService.getAllBooks; track book.id) {
+          <tr>
+            <td>{{ book.id }}</td>
+            <td>{{ book.name }}</td>
+            <td>{{ book.genre }}</td>
+            <td>{{ book.price }}</td>
+            <td (click)="removeBook(book.id)">&#10060;</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

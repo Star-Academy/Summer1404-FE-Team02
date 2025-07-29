@@ -7,9 +7,15 @@ import { BOOKS } from './books/DUMMY_BOOKS';
 })
 export class BooksService {
   private books = BOOKS;
+  search = "";
 
   get getAllBooks() {
-    return this.books;
+    if (this.search === "") {
+      return this.books;
+    }
+    else {
+      return this.books.filter((book: Book) => book.name.toLowerCase().includes(this.search));
+    }
   }
 
   selectedBook(bookId: string) {
@@ -22,5 +28,14 @@ export class BooksService {
 
   addBook(bookData: Book) {
     this.books.push(bookData);
+  }
+
+  setSearchValue(search: string) {
+    console.log()
+    this.search = search;
+  }
+
+  getSearchValue(): string {
+    return this.search;
   }
 }

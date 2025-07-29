@@ -21,7 +21,7 @@
 
   background-color: transparent;
   color: white;
-  border: 1px solid #444;
+  border: 0.1rem solid #444;
 }
 
 :host .book-toolbar select {
@@ -34,7 +34,7 @@
 
   background-color: #0e0e0e;
   color: white;
-  border: 1px solid #444;
+  border: 0.1rem solid #444;
 }
 
 :host .book-toolbar label {

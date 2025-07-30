@@ -1,4 +1,12 @@
-<div class="modal-overlay" (click)="onCloseModal($event)">
+<div
+  #modalOverlay
+  class="modal-overlay"
+  tabindex="0"
+  (click)="onCloseModal($event)"
+  (keydown)="onCloseModal($event)"
+  role="button"
+  aria-label="Close modal"
+>
   <div class="modal">
     <div class="modal-book-header">
       <h2>Edit Book</h2>

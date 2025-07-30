@@ -6,6 +6,9 @@ import {
   inject,
   OnChanges,
   SimpleChanges,
+  ViewChild,
+  AfterViewInit,
+  ElementRef,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BooksService } from '../../../services/books.service';
@@ -18,12 +21,14 @@ import { Book } from '../../../pages/home/books/books.model';
   templateUrl: './update-book.component.html',
   styleUrl: '../shared/shared.component.css',
 })
-export class UpdateBookComponent implements OnChanges {
+export class UpdateBookComponent implements OnChanges, AfterViewInit {
   booksService = inject(BooksService);
   book!: Book;
 
   @Input() id!: string;
   @Output() closeModal = new EventEmitter();
+
+  @ViewChild('modalOverlay') overlayRef!: ElementRef;
 
   onCancel() {
     this.closeModal.emit();
@@ -42,8 +47,18 @@ export class UpdateBookComponent implements OnChanges {
       }
     }
   }
-  
-  onCloseModal(event: MouseEvent) {
-    if (event.target === event.currentTarget) this.onCancel();
+
+  ngAfterViewInit(): void {
+    this.overlayRef.nativeElement.focus();
+  }
+
+  onCloseModal(event: MouseEvent | KeyboardEvent) {
+    if (event instanceof MouseEvent) {
+      if (event.target === event.currentTarget) this.onCancel();
+    } else if (event instanceof KeyboardEvent) {
+      if (event.key === 'Escape') {
+        this.onCancel();
+      }
+    }
   }
 }

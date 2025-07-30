@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { type Book } from '../books.model';
 import { RouterLink } from '@angular/router';
-import {DatePipe} from "@angular/common";
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-book',
@@ -12,8 +12,4 @@ import {DatePipe} from "@angular/common";
 })
 export class BookCardComponent {
   @Input({ required: true }) book!: Book;
-
-  get bookGenres() {
-    return this.book.genre.map((g) => `<span>${g}</span>`).join('');
-  }
 }

@@ -4,7 +4,7 @@
       <img
         class="book-img"
         [src]="book.image"
-        alt="${book.name}"
+        [alt]="book.name"
         loading="lazy"
         width="200"
         height="300"
@@ -13,10 +13,14 @@
     <div class="book-content">
       <h3 class="book-title">{{ book.name }}</h3>
       <p class="book-author">{{ book.author }}</p>
-      <p class="book-genre" [innerHTML]="bookGenres"></p>
+      <p class="book-genre">
+        @for (genre of book.genre; track genre) {
+        <span class="book-genre__item">{{ genre }}</span
+        >}
+      </p>
       <p class="book-publish">
         Published:
-        <time datetime="${book.publishData}">{{ book.publishData | date }}</time>
+        <time [dateTime]="book.publishData">{{ book.publishData | date }}</time>
       </p>
       <p class="book-price"><span>$</span>{{ book.price }}</p>
     </div>

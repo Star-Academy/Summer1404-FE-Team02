@@ -6,7 +6,6 @@ import { BooksService } from '../../services/books.service';
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.css',
 })
-
 export class PanelComponent {
   booksService = inject(BooksService);
 
@@ -15,7 +14,9 @@ export class PanelComponent {
 
   isModalAddOpen = false;
   isModalEditOpen = false;
+
   isDeleteDialogOpen = false;
+  isDeleteSuccess = false;
 
   changeModalAddStatus() {
     this.isModalAddOpen = !this.isModalAddOpen;
@@ -43,8 +44,15 @@ export class PanelComponent {
   onDelete(isAccept: boolean) {
     this.changeDialogDeleteStatus();
 
-    if(isAccept) {
+    if (isAccept) {
       this.booksService.deleteBook(this.selectedId);
     }
+  }
+
+  onDeleteSuccess(action: 'delete' | 'dismiss') {
+    if (this.isDeleteSuccess && action === 'delete') {
+      return;
+    }
+    this.isDeleteSuccess = !this.isDeleteSuccess;
   }
 }

@@ -10,12 +10,15 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     './delete-dialog.component.css',
   ],
 })
-
 export class DeleteDialogComponent {
   @Input({ required: true }) name!: string;
-  @Output() confirmed = new EventEmitter<boolean>();
+  @Output() submit = new EventEmitter<boolean>();
+  @Output() successDelete = new EventEmitter<'delete'>();
 
   onSubmit(value: boolean) {
-    this.confirmed.emit(value);
+    this.submit.emit(value);
+    if (value) {
+      this.successDelete.emit('delete');
+    }
   }
 }

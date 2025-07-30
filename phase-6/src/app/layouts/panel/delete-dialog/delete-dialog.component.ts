@@ -15,7 +15,7 @@ export class DeleteDialogComponent {
   @Input({ required: true }) name!: string;
   @Output() confirmed = new EventEmitter<boolean>();
 
-  onConfirm(value: boolean) {
+  onSubmit(value: boolean) {
     this.confirmed.emit(value);
   }
 }

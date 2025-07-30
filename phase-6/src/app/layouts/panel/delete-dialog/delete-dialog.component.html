@@ -1,8 +1,8 @@
-<div class="modal-overlay" (click)="onConfirm(false)">
+<div class="modal-overlay" (click)="onSubmit(false)">
   <div class="modal">
     <div class="modal-book-header">
       <p>Are sure about delete {{ name }} book?</p>
-      <button class="modal-close" (click)="onConfirm(false)">
+      <button class="modal-close" (click)="onSubmit(false)">
         <svg
           width="20px"
           height="20px"
@@ -21,8 +21,14 @@
     </div>
     <div class="modal-actions">
       <div style="display: flex; gap: 1rem">
-        <button type="button" (click)="onConfirm(false)">Cancel</button>
-        <button type="button" (click)="onConfirm(true)">Save</button>
+        <button type="button" (click)="onSubmit(false)">Cancel</button>
+        <button
+          type="button"
+          (click)="onSubmit(true)"
+          class="accept-delete-btn"
+        >
+          Ok
+        </button>
       </div>
     </div>
   </div>

@@ -30,7 +30,7 @@ export class UpdateBookComponent implements OnChanges, AfterViewInit {
 
   @ViewChild('modalOverlay') overlayRef!: ElementRef;
 
-  public onCancel() {
+  public onClose() {
     this.closeModal.emit();
   }
 
@@ -41,10 +41,10 @@ export class UpdateBookComponent implements OnChanges, AfterViewInit {
 
   public onCloseModal(event: MouseEvent | KeyboardEvent) {
     if (event instanceof MouseEvent) {
-      if (event.target === event.currentTarget) this.onCancel();
+      if (event.target === event.currentTarget) this.onClose();
     } else if (event instanceof KeyboardEvent) {
       if (event.key === 'Escape') {
-        this.onCancel();
+        this.onClose();
       }
     }
   }

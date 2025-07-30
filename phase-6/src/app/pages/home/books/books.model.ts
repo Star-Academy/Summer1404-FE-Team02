@@ -4,6 +4,6 @@ export interface Book {
   image: string;
   genre: string[];
   author: string;
-  publishData: string;
+  publishDate: string;
   price: number;
 }

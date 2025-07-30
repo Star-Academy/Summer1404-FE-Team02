@@ -7,7 +7,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Fiction', 'Fantasy'],
     author: 'Matt Haig',
-    publishData: '2020-08-13',
+    publishDate: '2020-08-13',
     price: 1499,
   },
   {
@@ -16,7 +16,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Science Fiction', 'Adventure'],
     author: 'Frank Herbert',
-    publishData: '1965-08-01',
+    publishDate: '1965-08-01',
     price: 999,
   },
   {
@@ -25,7 +25,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Fiction', 'Classic'],
     author: 'Harper Lee',
-    publishData: '1960-07-11',
+    publishDate: '1960-07-11',
     price: 799,
   },
   {
@@ -34,7 +34,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Dystopian', 'Science Fiction'],
     author: 'George Orwell',
-    publishData: '1949-06-08',
+    publishDate: '1949-06-08',
     price: 899,
   },
   {
@@ -43,7 +43,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Fiction', 'Classic'],
     author: 'F. Scott Fitzgerald',
-    publishData: '1925-04-10',
+    publishDate: '1925-04-10',
     price: 699,
   },
   {
@@ -52,7 +52,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Fantasy', 'Young Adult'],
     author: 'J.K. Rowling',
-    publishData: '1997-06-26',
+    publishDate: '1997-06-26',
     price: 1099,
   },
   {
@@ -61,7 +61,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Fiction', 'Coming-of-age'],
     author: 'J.D. Salinger',
-    publishData: '1951-07-16',
+    publishDate: '1951-07-16',
     price: 849,
   },
   {
@@ -70,7 +70,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Romance', 'Classic'],
     author: 'Jane Austen',
-    publishData: '1813-01-28',
+    publishDate: '1813-01-28',
     price: 599,
   },
   {
@@ -79,7 +79,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Fantasy', 'Adventure'],
     author: 'J.R.R. Tolkien',
-    publishData: '1937-09-21',
+    publishDate: '1937-09-21',
     price: 949,
   },
   {
@@ -88,7 +88,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Thriller', 'Mystery'],
     author: 'Dan Brown',
-    publishData: '2003-03-18',
+    publishDate: '2003-03-18',
     price: 1299,
   },
   {
@@ -97,7 +97,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Fiction', 'Philosophy'],
     author: 'Paulo Coelho',
-    publishData: '1988-01-01',
+    publishDate: '1988-01-01',
     price: 1099,
   },
   {
@@ -106,7 +106,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Science Fiction', 'Dystopian'],
     author: 'Aldous Huxley',
-    publishData: '1932-01-01',
+    publishDate: '1932-01-01',
     price: 899,
   },
   {
@@ -115,7 +115,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Young Adult', 'Science Fiction'],
     author: 'Suzanne Collins',
-    publishData: '2008-09-14',
+    publishDate: '2008-09-14',
     price: 1199,
   },
   {
@@ -124,7 +124,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Horror', 'Thriller'],
     author: 'Stephen King',
-    publishData: '1977-01-28',
+    publishDate: '1977-01-28',
     price: 1299,
   },
   {
@@ -133,7 +133,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Crime', 'Mystery'],
     author: 'Stieg Larsson',
-    publishData: '2005-08-01',
+    publishDate: '2005-08-01',
     price: 1399,
   },
   {
@@ -142,7 +142,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Science Fiction', 'Comedy'],
     author: 'Douglas Adams',
-    publishData: '1979-10-12',
+    publishDate: '1979-10-12',
     price: 999,
   },
   {
@@ -151,7 +151,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Fiction', 'Historical'],
     author: 'Khaled Hosseini',
-    publishData: '2003-05-29',
+    publishDate: '2003-05-29',
     price: 1199,
   },
   {
@@ -160,7 +160,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Science Fiction', 'Adventure'],
     author: 'Andy Weir',
-    publishData: '2011-09-27',
+    publishDate: '2011-09-27',
     price: 1299,
   },
   {
@@ -169,7 +169,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Dystopian', 'Speculative Fiction'],
     author: 'Margaret Atwood',
-    publishData: '1985-06-14',
+    publishDate: '1985-06-14',
     price: 1099,
   },
   {
@@ -178,7 +178,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Young Adult', 'Romance'],
     author: 'John Green',
-    publishData: '2012-01-10',
+    publishDate: '2012-01-10',
     price: 999,
   },
   {
@@ -187,7 +187,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Non-fiction', 'History'],
     author: 'Yuval Noah Harari',
-    publishData: '2011-01-01',
+    publishDate: '2011-01-01',
     price: 1599,
   },
   {
@@ -196,7 +196,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Fantasy', 'Epic'],
     author: 'J.R.R. Tolkien',
-    publishData: '1954-07-29',
+    publishDate: '1954-07-29',
     price: 1799,
   },
   {
@@ -205,7 +205,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Non-fiction', 'Autobiography'],
     author: 'Michelle Obama',
-    publishData: '2018-11-13',
+    publishDate: '2018-11-13',
     price: 1499,
   },
   {
@@ -214,7 +214,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Magical Realism', 'Literary Fiction'],
     author: 'Gabriel García Márquez',
-    publishData: '1967-05-30',
+    publishDate: '1967-05-30',
     price: 1099,
   },
   {
@@ -223,7 +223,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Thriller', 'Mystery'],
     author: 'Alex Michaelides',
-    publishData: '2019-02-05',
+    publishDate: '2019-02-05',
     price: 1399,
   },
   {
@@ -232,7 +232,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Fiction', 'Coming-of-age'],
     author: 'J.D. Salinger',
-    publishData: '1951-07-16',
+    publishDate: '1951-07-16',
     price: 999,
   },
   {
@@ -241,7 +241,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Non-fiction', 'Memoir'],
     author: 'Tara Westover',
-    publishData: '2018-02-20',
+    publishDate: '2018-02-20',
     price: 1299,
   },
   {
@@ -250,7 +250,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Historical Fiction', 'Epic'],
     author: 'Ken Follett',
-    publishData: '1989-10-01',
+    publishDate: '1989-10-01',
     price: 1599,
   },
   {
@@ -259,7 +259,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Non-fiction', 'Science'],
     author: 'Rebecca Skloot',
-    publishData: '2010-02-02',
+    publishDate: '2010-02-02',
     price: 1199,
   },
   {
@@ -268,7 +268,7 @@ export const BOOKS: Book[] = [
     image: 'https://picsum.photos/200/300',
     genre: ['Fantasy', 'Adventure'],
     author: 'Patrick Rothfuss',
-    publishData: '2007-03-27',
+    publishDate: '2007-03-27',
     price: 1499,
   },
 ];

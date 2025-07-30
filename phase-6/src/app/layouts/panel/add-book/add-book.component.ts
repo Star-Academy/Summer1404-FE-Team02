@@ -13,37 +13,40 @@ export class AddBookComponent {
   private readonly booksService = inject(BooksService);
 
   public name = '';
+  public image = '';
   public genre = '';
+  public author = '';
+  public publishDate = '';
   public price = 0;
 
   @Output() closeModal = new EventEmitter();
 
-  public onCancel() {
+  public onClose() {
     this.closeModal.emit();
   }
 
   public addBook() {
     this.booksService.addBook({
-      name: this.name,
-      price: this.price,
-      genre: [...this.genre],
       id: new Date().getDate().toString(),
-      publishData: new Date().toString(),
+      name: this.name,
+      image: this.image,
+      genre: [...this.genre.split(',')],
       author: this.name,
-      image: 'https://picsum.photos/200/300',
+      publishDate: new Date(this.publishDate).toISOString().split('T')[0],
+      price: this.price,
     });
 
-    this.onCancel();
+    this.onClose();
   }
 
   public onCloseModal(event: MouseEvent | KeyboardEvent) {
     if (event instanceof MouseEvent) {
       if (event.target === event.currentTarget) {
-        this.onCancel();
+        this.onClose();
       }
     } else if (event instanceof KeyboardEvent) {
       if (event.key === 'Escape') {
-        this.onCancel();
+        this.onClose();
       }
     }
   }

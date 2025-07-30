@@ -32,7 +32,7 @@ export class BookDetailComponent implements OnInit {
   }
 
   get formattedDate(): string {
-    return new Date(this.book.publishData).toLocaleDateString('en-US', {
+    return new Date(this.book.publishDate).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
       day: 'numeric',

@@ -13,9 +13,24 @@
 }
 
 <div class="table-wrapper modal-backdrop">
-  <button (click)="changeModalAddStatus()" class="add-book__btn">
-    Add book
-  </button>
+  <div class="panel-btn">
+    <button class="return-btn" [routerLink]="['/']" aria-label="Go back">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="48"
+          d="M244 400 100 256l144-144M120 256h292"
+        />
+      </svg>
+    </button>
+
+    <button (click)="changeModalAddStatus()" class="add-book__btn">
+      Add book
+    </button>
+  </div>
   <div class="table-container">
     <table>
       <thead>

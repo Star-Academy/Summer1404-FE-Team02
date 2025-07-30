@@ -55,4 +55,5 @@ export class PanelComponent {
     }
     this.isDeleteSuccess = !this.isDeleteSuccess;
   }
+
 }

@@ -1,7 +1,9 @@
 <div class="modal-overlay" (click)="onSubmit(false)">
   <div class="modal">
     <div class="modal-book-header">
-      <p>Are sure about delete {{ name }} book?</p>
+      <p class="delete-dialog-title">
+        Delete book <span>"{{ name }}"</span> ?
+      </p>
       <button class="modal-close" (click)="onSubmit(false)">
         <svg
           width="20px"

@@ -2,3 +2,18 @@
   background-color: red !important;
   color: white !important;
 }
+
+.delete-dialog-title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #e5e5e5;
+  margin-bottom: 1.6rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.delete-dialog-title span {
+  font-weight: 700;
+  color: #ffffff;
+  font-style: italic;
+}

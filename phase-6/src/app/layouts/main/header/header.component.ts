@@ -9,5 +9,5 @@ import { HEADER_LINK } from './HEADER_LINK';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  links = HEADER_LINK;
+  public readonly links = HEADER_LINK;
 }

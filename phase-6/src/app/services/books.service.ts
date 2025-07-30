@@ -7,7 +7,7 @@ import { BOOKS } from '../pages/home/books/DUMMY_BOOKS';
 })
 export class BooksService {
   private books = BOOKS;
-  search = '';
+  private search = '';
 
   constructor() {
     const isExistBooks = localStorage.getItem('books');
@@ -28,30 +28,29 @@ export class BooksService {
     localStorage.setItem('books', JSON.stringify(this.books));
   }
 
-  selectedBook(bookId: string) {
+  public selectedBook(bookId: string) {
     return this.books.find((book) => book.id === bookId);
   }
 
-  deleteBook(bookId: string) {
+  public deleteBook(bookId: string) {
     this.books = this.books.filter((book) => book.id !== bookId);
     this.saveBooks();
   }
 
-  addBook(bookData: Book) {
+  public addBook(bookData: Book) {
     this.books.push(bookData);
     this.saveBooks();
   }
 
-  setSearchValue(search: string) {
-    console.log();
+  public setSearchValue(search: string) {
     this.search = search;
   }
 
-  getSearchValue(): string {
+  public getSearchValue(): string {
     return this.search;
   }
 
-  updateBook(updatedBook: Book) {
+  public updateBook(updatedBook: Book) {
     const index = this.books.findIndex((book) => book.id === updatedBook.id);
     if (index !== -1) {
       this.books[index] = { ...updatedBook };

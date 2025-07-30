@@ -14,8 +14,8 @@ export class BookDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private booksService = inject(BooksService);
 
-  bookId: string | null = null;
-  book!: Book;
+  private bookId: string | null = null;
+  public book!: Book;
 
   ngOnInit(): void {
     this.bookId = this.route.snapshot.paramMap.get('bookId');

@@ -10,8 +10,8 @@ import { BooksService } from '../../../services/books.service';
   styleUrl: './top-bar.component.css',
 })
 export class TopBarComponent {
-  booksService: BooksService = inject(BooksService);
-  search = '';
+  private readonly booksService: BooksService = inject(BooksService);
+  public readonly search = '';
 
   searchBook() {
     this.booksService.setSearchValue(this.search.toLowerCase());

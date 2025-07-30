@@ -22,21 +22,31 @@ import { Book } from '../../../pages/home/books/books.model';
   styleUrl: '../shared/shared.component.css',
 })
 export class UpdateBookComponent implements OnChanges, AfterViewInit {
-  booksService = inject(BooksService);
-  book!: Book;
+  private readonly booksService = inject(BooksService);
+  public book!: Book;
 
   @Input() id!: string;
   @Output() closeModal = new EventEmitter();
 
   @ViewChild('modalOverlay') overlayRef!: ElementRef;
 
-  onCancel() {
+  public onCancel() {
     this.closeModal.emit();
   }
 
-  onUpdateBook() {
+  public onUpdateBook() {
     this.booksService.updateBook(this.book);
     this.closeModal.emit();
+  }
+
+  public onCloseModal(event: MouseEvent | KeyboardEvent) {
+    if (event instanceof MouseEvent) {
+      if (event.target === event.currentTarget) this.onCancel();
+    } else if (event instanceof KeyboardEvent) {
+      if (event.key === 'Escape') {
+        this.onCancel();
+      }
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -50,15 +60,5 @@ export class UpdateBookComponent implements OnChanges, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.overlayRef.nativeElement.focus();
-  }
-
-  onCloseModal(event: MouseEvent | KeyboardEvent) {
-    if (event instanceof MouseEvent) {
-      if (event.target === event.currentTarget) this.onCancel();
-    } else if (event instanceof KeyboardEvent) {
-      if (event.key === 'Escape') {
-        this.onCancel();
-      }
-    }
   }
 }

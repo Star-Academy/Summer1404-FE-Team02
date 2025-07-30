@@ -7,41 +7,41 @@ import { BooksService } from '../../services/books.service';
   styleUrl: './panel.component.css',
 })
 export class PanelComponent {
-  booksService = inject(BooksService);
+  public readonly booksService = inject(BooksService);
 
-  selectedId!: string;
-  bookName!: string;
+  public selectedId!: string;
+  public bookName!: string;
 
-  isModalAddOpen = false;
-  isModalEditOpen = false;
+  public isModalAddOpen = false;
+  public isModalEditOpen = false;
 
-  isDeleteDialogOpen = false;
-  isDeleteSuccess = false;
+  public isDeleteDialogOpen = false;
+  public isDeleteSuccess = false;
 
-  changeModalAddStatus() {
+  public changeModalAddStatus() {
     this.isModalAddOpen = !this.isModalAddOpen;
   }
 
-  changeModalEditStatus() {
+  public changeModalEditStatus() {
     this.isModalEditOpen = !this.isModalEditOpen;
   }
 
-  changeDialogDeleteStatus() {
+  public changeDialogDeleteStatus() {
     this.isDeleteDialogOpen = !this.isDeleteDialogOpen;
   }
 
-  setSelectedEditId(id: string) {
+  public setSelectedEditId(id: string) {
     this.selectedId = id;
     this.changeModalEditStatus();
   }
 
-  setSelectedDeleteId(id: string, name: string) {
+  public setSelectedDeleteId(id: string, name: string) {
     this.selectedId = id;
     this.bookName = name;
     this.changeDialogDeleteStatus();
   }
 
-  onDelete(isAccept: boolean) {
+  public onDelete(isAccept: boolean) {
     this.changeDialogDeleteStatus();
 
     if (isAccept) {
@@ -49,7 +49,7 @@ export class PanelComponent {
     }
   }
 
-  onDeleteSuccess(action: 'delete' | 'dismiss') {
+  public onDeleteSuccess(action: 'delete' | 'dismiss') {
     if (this.isDeleteSuccess && action === 'delete') {
       return;
     }

@@ -10,19 +10,19 @@ import { BooksService } from '../../../services/books.service';
   styleUrl: '../shared/shared.component.css',
 })
 export class AddBookComponent {
-  booksService = inject(BooksService);
+  private readonly booksService = inject(BooksService);
 
-  name = '';
-  genre = '';
-  price = 0;
+  public name = '';
+  public genre = '';
+  public price = 0;
 
   @Output() closeModal = new EventEmitter();
 
-  onCancel() {
+  public onCancel() {
     this.closeModal.emit();
   }
 
-  addBook() {
+  public addBook() {
     this.booksService.addBook({
       name: this.name,
       price: this.price,
@@ -36,7 +36,7 @@ export class AddBookComponent {
     this.onCancel();
   }
 
-  onCloseModal(event: MouseEvent | KeyboardEvent) {
+  public onCloseModal(event: MouseEvent | KeyboardEvent) {
     if (event instanceof MouseEvent) {
       if (event.target === event.currentTarget) {
         this.onCancel();

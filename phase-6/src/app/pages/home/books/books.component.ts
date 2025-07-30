@@ -11,9 +11,9 @@ import { Book } from './books.model';
   styleUrl: './books.component.css',
 })
 export class BooksComponent implements DoCheck, OnInit {
-  booksService = inject(BooksService);
-  books: Book[] = [];
-  previousSearch = '';
+  private readonly booksService = inject(BooksService);
+  public books: Book[] = [];
+  private previousSearch = '';
 
   ngOnInit() {
     this.books = this.booksService.getAllBooks;

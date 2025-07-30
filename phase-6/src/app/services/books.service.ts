@@ -20,7 +20,7 @@ export class BooksService {
     if (this.search === '') return this.books;
 
     return this.books.filter((book: Book) =>
-      book.name.toLowerCase().includes(this.search)
+      book.name.toLowerCase().includes(this.search),
     );
   }
 

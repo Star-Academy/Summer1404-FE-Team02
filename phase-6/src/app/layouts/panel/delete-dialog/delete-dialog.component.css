@@ -4,14 +4,21 @@
 }
 
 .delete-dialog-title {
+  display: flex;
   font-size: 2rem;
   font-weight: 500;
   color: #e5e5e5;
   text-align: center;
   line-height: 1.6;
+  width: calc(100% - 40px);
+  gap: 0 0.5rem;
 }
 
-.delete-dialog-title span {
+.delete-dialog-title > span:first-child {
+  flex-shrink: 0;
+}
+
+.delete-dialog-title > span:last-child {
   font-weight: 700;
   color: #ffffff;
   font-style: italic;

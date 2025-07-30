@@ -16,3 +16,9 @@ body {
   background-color: #0e0e0e;
   color: #f1f1f1;
 }
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

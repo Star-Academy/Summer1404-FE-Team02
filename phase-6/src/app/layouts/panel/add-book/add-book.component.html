@@ -1,4 +1,9 @@
-<div class="modal-overlay" (click)="onCloseModal($event)">
+<div
+  class="modal-overlay"
+  (click)="onCloseModal($event)"
+  (keydown)="onCloseModal($event)"
+  tabindex="0"
+>
   <div class="modal">
     <div class="modal-book-header">
       <h2>Add Book</h2>

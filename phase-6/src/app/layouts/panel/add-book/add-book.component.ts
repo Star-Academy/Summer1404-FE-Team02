@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BooksService } from '../../../services/books.service';
 
@@ -36,7 +36,15 @@ export class AddBookComponent {
     this.onCancel();
   }
 
-  onCloseModal(event: MouseEvent) {
-    if (event.target === event.currentTarget) this.onCancel();
+  onCloseModal(event: MouseEvent | KeyboardEvent) {
+    if (event instanceof MouseEvent) {
+      if (event.target === event.currentTarget) {
+        this.onCancel();
+      }
+    } else if (event instanceof KeyboardEvent) {
+      if (event.key === 'Escape') {
+        this.onCancel();
+      }
+    }
   }
 }

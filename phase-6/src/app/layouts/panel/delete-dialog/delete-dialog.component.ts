@@ -12,11 +12,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class DeleteDialogComponent {
   @Input({ required: true }) name!: string;
-  @Output() submit = new EventEmitter<boolean>();
+  @Output() submited = new EventEmitter<boolean>();
   @Output() successDelete = new EventEmitter<'delete'>();
 
   onSubmit(value: boolean) {
-    this.submit.emit(value);
+    this.submited.emit(value);
     if (value) {
       this.successDelete.emit('delete');
     }

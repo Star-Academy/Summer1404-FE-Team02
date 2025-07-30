@@ -1,4 +1,9 @@
-<div class="modal-overlay" (click)="onSubmit(false)">
+<div
+  class="modal-overlay"
+  (click)="onSubmit(false)"
+  (keydown.enter)="onSubmit(true)"
+  tabindex="0"
+>
   <div class="modal">
     <div class="modal-book-header">
       <p class="delete-dialog-title">

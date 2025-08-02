@@ -45,9 +45,9 @@
           <th>Action</th>
         </tr>
       </thead>
-      @if (booksService.getAllBooks.length) {
+      @if (booksService.getAllBooksForAdmin.length) {
         <tbody>
-          @for (book of booksService.getAllBooks; track book.id) {
+          @for (book of booksService.getAllBooksForAdmin; track book.id) {
             <tr>
               <td>{{ book.id }}</td>
               <td>{{ book.name }}</td>

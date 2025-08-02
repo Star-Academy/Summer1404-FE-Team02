@@ -16,13 +16,18 @@ export class BooksService {
     }
   }
 
-  get getAllBooks() {
+  get getAllBooksForAdmin() {
+    return this.books;
+  }
+
+  get getBooksForUser() {
     if (this.search === '') return this.books;
 
     return this.books.filter((book: Book) =>
       book.name.toLowerCase().includes(this.search),
     );
   }
+
 
   private saveBooks() {
     localStorage.setItem('books', JSON.stringify(this.books));

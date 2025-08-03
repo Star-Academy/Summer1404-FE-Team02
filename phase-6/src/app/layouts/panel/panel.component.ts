@@ -41,7 +41,7 @@ export class PanelComponent {
     this.changeDialogDeleteStatus();
   }
 
-  public onDelete(isAccept: boolean) {
+  public onDeleteBook(isAccept: boolean) {
     this.changeDialogDeleteStatus();
 
     if (isAccept) {

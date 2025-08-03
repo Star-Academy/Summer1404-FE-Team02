@@ -6,7 +6,7 @@
 }
 @if (isDeleteDialogOpen) {
   <app-delete-dialog
-    (submitted)="onDelete($event)"
+    (submitted)="onDeleteBook($event)"
     [name]="bookName"
     (successDelete)="onDeleteSuccess($event)"
   />

@@ -18,15 +18,9 @@ export class Q3Component implements OnInit {
   }
 
   ngOnInit() {
-    // this._httpService.getData().subscribe(response => {
-    //     this.posts = response
-    //     console.log(response)
-    //   }
-    // )
     this._httpService.getData().subscribe({
       next: response => {
         this.posts = response
-        console.log(response)
       }
     })
   }

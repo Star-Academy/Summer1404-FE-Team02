@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {map, Observable, of} from "rxjs";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-q1',
@@ -19,7 +19,7 @@ export class Q1Component implements OnInit {
       observer.complete();
     })
 
-    const customObserver = this.customObservable.subscribe({
+    this.customObservable.subscribe({
       next: (value) => console.log(value),
       error: (error) => console.log(error),
       complete: () => console.log('completed!'),

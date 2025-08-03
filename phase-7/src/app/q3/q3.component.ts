@@ -24,5 +24,4 @@ export class Q3Component implements OnInit {
       }
     })
   }
-
 }

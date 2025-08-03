@@ -28,12 +28,11 @@ export class BooksService {
     );
   }
 
-
   private saveBooks() {
     localStorage.setItem('books', JSON.stringify(this.books));
   }
 
-  public selectedBook(bookId: string) {
+  public selectBookById(bookId: string) {
     return this.books.find((book) => book.id === bookId);
   }
 

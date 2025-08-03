@@ -51,7 +51,7 @@ export class UpdateBookComponent implements OnChanges, AfterViewInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['id'] && this.id) {
-      const isBook = this.booksService.selectedBook(this.id);
+      const isBook = this.booksService.selectBookById(this.id);
       if (isBook) {
         this.book = { ...isBook };
       }

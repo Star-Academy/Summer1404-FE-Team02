@@ -21,7 +21,7 @@ export class BookDetailComponent implements OnInit {
     this.bookId = this.route.snapshot.paramMap.get('bookId');
 
     if (this.bookId) {
-      const found = this.booksService.selectedBook(this.bookId);
+      const found = this.booksService.selectBookById(this.bookId);
 
       if (found) {
         this.book = found;

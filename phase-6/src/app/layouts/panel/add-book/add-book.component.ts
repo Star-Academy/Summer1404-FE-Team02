@@ -39,15 +39,9 @@ export class AddBookComponent {
     this.onClose();
   }
 
-  public onCloseModal(event: MouseEvent | KeyboardEvent) {
-    if (event instanceof MouseEvent) {
-      if (event.target === event.currentTarget) {
-        this.onClose();
-      }
-    } else if (event instanceof KeyboardEvent) {
-      if (event.key === 'Escape') {
-        this.onClose();
-      }
+  public onCloseModal(event: MouseEvent) {
+    if (event.target === event.currentTarget) {
+      this.onClose();
     }
   }
 }

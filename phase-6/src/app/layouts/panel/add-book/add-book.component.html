@@ -1,7 +1,7 @@
 <div
   class="modal-overlay"
   (click)="onCloseModal($event)"
-  (keydown)="onCloseModal($event)"
+  (keydown.escape)="onClose()"
   tabindex="0"
 >
   <div class="modal">

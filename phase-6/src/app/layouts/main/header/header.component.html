@@ -1,7 +1,7 @@
 <header>
   <div>
     @for (link of links; track link.title) {
-      <a [href]="link.src">{{ link.title }}</a>
+      <a [routerLink]="link.src">{{ link.title }}</a>
     }
   </div>
 </header>

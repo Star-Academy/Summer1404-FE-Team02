@@ -1,5 +1,6 @@
 import {Component, computed, inject} from '@angular/core';
 import {BooksService} from '../../services/books.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-panel',
@@ -8,7 +9,7 @@ import {BooksService} from '../../services/books.service';
 })
 export class PanelComponent {
   public readonly booksService = inject(BooksService);
-  public books = computed(() => this.booksService.getBooks());
+  public books = toSignal(this.booksService.getBooks(), {initialValue: []});
 
   public selectedId!: string;
   public bookName!: string;

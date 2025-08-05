@@ -1,7 +1,6 @@
-import {Component, DoCheck, inject, OnInit} from '@angular/core';
+import {Component, computed, inject, input, output} from '@angular/core';
 import {BooksService} from '../../../services/books.service';
 import {BookCardComponent} from './book-card/book-card.component';
-import {Book} from './books.model';
 
 @Component({
   selector: 'app-books',
@@ -10,20 +9,9 @@ import {Book} from './books.model';
   templateUrl: './books.component.html',
   styleUrl: './books.component.css',
 })
-export class BooksComponent implements DoCheck, OnInit {
+export class BooksComponent {
   private readonly booksService = inject(BooksService);
-  public books: Book[] = [];
-  private previousSearch = '';
+  search = output<string>();
 
-  ngOnInit() {
-    this.books = this.booksService.getBooksForUser;
-  }
-
-  ngDoCheck() {
-    const currentSearch = this.booksService.getSearchValue();
-    if (currentSearch !== this.previousSearch) {
-      this.previousSearch = currentSearch;
-      this.books = this.booksService.getBooksForUser;
-    }
-  }
+  public books = computed(() => this.booksService.getBooks())
 }

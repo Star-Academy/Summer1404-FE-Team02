@@ -51,12 +51,14 @@ export class UpdateBookComponent implements OnChanges, AfterViewInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['id'] && this.id) {
-      const isBook = this.booksService.selectBookById(this.id);
-      if (isBook) {
-        this.book = { ...isBook };
-      }
+      this.booksService.selectBookById(this.id).subscribe((book) => {
+        if (book) {
+          this.book = { ...book };
+        }
+      });
     }
   }
+
 
   ngAfterViewInit(): void {
     this.overlayRef.nativeElement.focus();

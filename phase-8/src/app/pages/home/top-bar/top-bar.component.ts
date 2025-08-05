@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import {Component, inject, input, signal,} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BooksService } from '../../../services/books.service';
 
@@ -10,10 +10,8 @@ import { BooksService } from '../../../services/books.service';
   styleUrl: './top-bar.component.css',
 })
 export class TopBarComponent {
-  private readonly booksService: BooksService = inject(BooksService);
-  public readonly search = '';
+  search = signal<string>("");
 
-  searchBook() {
-    this.booksService.setSearchValue(this.search.toLowerCase());
+  onChangeSearchInput(event: Event) {
   }
 }

@@ -13,8 +13,8 @@
   <input
     type="text"
     placeholder="Search..."
-    [(ngModel)]="search"
+    (input)="onChangeSearchInput($event)"
     name="search"
-    (input)="searchBook()"
+    [value]="search()"
   />
 </nav>

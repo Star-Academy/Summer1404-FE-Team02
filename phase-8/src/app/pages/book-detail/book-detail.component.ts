@@ -21,13 +21,14 @@ export class BookDetailComponent implements OnInit {
     this.bookId = this.route.snapshot.paramMap.get('bookId');
 
     if (this.bookId) {
-      const found = this.booksService.selectBookById(this.bookId);
-
-      if (found) {
-        this.book = found;
-      } else {
-        this.router.navigate(['/'], { replaceUrl: true });
-      }
+      this.booksService.selectBookById(this.bookId).subscribe(book => {
+        if (book) {
+          this.book = book;
+        }
+        else {
+          this.router.navigate(['/'], { replaceUrl: true });
+        }
+      });
     }
   }
 

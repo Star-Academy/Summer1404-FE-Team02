@@ -1,6 +1,6 @@
-import {Component, computed, inject} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {BooksService} from '../../services/books.service';
-import { toSignal } from '@angular/core/rxjs-interop';
+import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-panel',
@@ -11,35 +11,35 @@ export class PanelComponent {
   public readonly booksService = inject(BooksService);
   public books = toSignal(this.booksService.getBooks(), {initialValue: []});
 
-  public selectedId!: string;
-  public bookName!: string;
+  public selectedId = signal<string>("");
+  public bookName =  signal<string>("");
 
-  public isModalAddOpen = false;
-  public isModalEditOpen = false;
+  public isModalAddOpen = signal<boolean>(false);
+  public isModalEditOpen = signal<boolean>(false);
 
-  public isDeleteDialogOpen = false;
-  public isDeleteSuccess = false;
+  public isDeleteDialogOpen = signal<boolean>(false);
+  public isDeleteSuccess = signal<boolean>(false);
 
   public changeModalAddStatus() {
-    this.isModalAddOpen = !this.isModalAddOpen;
+    this.isModalAddOpen.update((currentValue) => !currentValue);
   }
 
   public changeModalEditStatus() {
-    this.isModalEditOpen = !this.isModalEditOpen;
+    this.isModalEditOpen.update((currentValue) => !currentValue);
   }
 
   public changeDialogDeleteStatus() {
-    this.isDeleteDialogOpen = !this.isDeleteDialogOpen;
+    this.isDeleteDialogOpen.update((currentValue) => !currentValue);
   }
 
   public setSelectedEditId(id: string) {
-    this.selectedId = id;
+    this.selectedId.set(id);
     this.changeModalEditStatus();
   }
 
   public setSelectedDeleteId(id: string, name: string) {
-    this.selectedId = id;
-    this.bookName = name;
+    this.selectedId.set(id);
+    this.bookName.set(name);
     this.changeDialogDeleteStatus();
   }
 
@@ -47,14 +47,14 @@ export class PanelComponent {
     this.changeDialogDeleteStatus();
 
     if (isAccept) {
-      this.booksService.deleteBook(this.selectedId);
+      this.booksService.deleteBook(this.selectedId.toString());
     }
   }
 
   public onDeleteSuccess(action: 'delete' | 'dismiss') {
-    if (this.isDeleteSuccess && action === 'delete') {
+    if (action === 'delete') {
       return;
     }
-    this.isDeleteSuccess = !this.isDeleteSuccess;
+    this.isDeleteSuccess.update((currentValue) => !currentValue);
   }
 }

@@ -8,7 +8,7 @@ import {
   SimpleChanges,
   ViewChild,
   AfterViewInit,
-  ElementRef,
+  ElementRef, signal,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BooksService } from '../../../services/books.service';
@@ -53,7 +53,7 @@ export class UpdateBookComponent implements OnChanges, AfterViewInit {
     if (changes['id'] && this.id) {
       this.booksService.selectBookById(this.id).subscribe((book) => {
         if (book) {
-          this.book = { ...book };
+          this.book = { ...book};
         }
       });
     }

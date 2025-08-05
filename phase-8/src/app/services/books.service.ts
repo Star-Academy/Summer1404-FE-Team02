@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Signal} from '@angular/core';
 import {Book} from '../pages/home/books/books.model';
 import {BOOKS} from '../pages/home/books/DUMMY_BOOKS';
 import {BehaviorSubject, map, Observable} from 'rxjs';

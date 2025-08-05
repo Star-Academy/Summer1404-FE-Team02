@@ -10,9 +10,9 @@ import {BooksService} from '../../../services/books.service';
   styleUrl: './top-bar.component.css',
 })
 export class TopBarComponent {
-  booksService = inject(BooksService)
+  private readonly booksService = inject(BooksService)
 
-  onChangeSearchInput(event: Event) {
+  public onChangeSearchInput(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     this.booksService.searchBooks(value);
   }

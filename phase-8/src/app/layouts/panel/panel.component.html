@@ -1,17 +1,17 @@
-@if (isModalAddOpen) {
+@if (isModalAddOpen()) {
   <app-add-book (closeModal)="changeModalAddStatus()" />
 }
-@if (isModalEditOpen) {
-  <app-update-book (closeModal)="changeModalEditStatus()" [id]="selectedId" />
+@if (isModalEditOpen()) {
+  <app-update-book (closeModal)="changeModalEditStatus()" [id]="selectedId()" />
 }
-@if (isDeleteDialogOpen) {
+@if (isDeleteDialogOpen()) {
   <app-delete-dialog
     (submitted)="onDeleteBook($event)"
-    [name]="bookName"
+    [name]="bookName()"
     (successDelete)="onDeleteSuccess($event)"
   />
 }
-@if (isDeleteSuccess) {
+@if (isDeleteSuccess()) {
   <app-success-delete-toast (dismissed)="onDeleteSuccess($event)" />
 }
 
@@ -83,12 +83,10 @@
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlSpace="preserve"
                     id="Layer_1"
                     width="17"
                     height="17"
                     fill="red"
-                    version="1.1"
                     viewBox="0 0 512 512"
                   >
                     <path

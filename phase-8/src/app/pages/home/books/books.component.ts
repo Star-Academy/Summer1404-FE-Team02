@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
-import { BooksService } from '../../../services/books.service';
-import { BookCardComponent } from './book-card/book-card.component';
-import { toSignal } from '@angular/core/rxjs-interop';
+import {Component, inject} from '@angular/core';
+import {BooksService} from '../../../services/books.service';
+import {BookCardComponent} from './book-card/book-card.component';
+import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-books',
@@ -13,5 +13,5 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class BooksComponent {
   private readonly booksService = inject(BooksService);
 
-  books = toSignal(this.booksService.getBooks(), { initialValue: [] });
+  books = toSignal(this.booksService.getBooks(), {initialValue: []});
 }

@@ -1,36 +1,36 @@
-import {Injectable, Signal} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Book} from '../pages/home/books/books.model';
 import {BOOKS} from '../pages/home/books/DUMMY_BOOKS';
-import {BehaviorSubject, map} from "rxjs";
+import {BehaviorSubject, map, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BooksService {
-  private books: Book[] = BOOKS;
+  private books: Book[] = [];
   public booksFlow = new BehaviorSubject<Book[]>([]);
 
   constructor() {
     const isExistBooks = localStorage.getItem('books');
-    if (isExistBooks) {
-      this.books = JSON.parse(isExistBooks);
-    }
+    this.books = isExistBooks ? JSON.parse(isExistBooks) : BOOKS;
+    this.booksFlow.next(this.books);
   }
 
-  public getBooks(search?: Signal<string>) {
-    return this.booksFlow.pipe(
-      map((books) => {
-          if (!search) {
-            return this.booksFlow.next(books);
-          } else {
-            books.filter((book) =>
-              book.name.toLowerCase().includes(search().toString().trim().toLowerCase()),
-            )
-          }
-        }
-      )
-    );
+  public getBooks(): Observable<Book[]> {
+    return this.booksFlow.asObservable();
+  }
 
+  public searchBooks(search: string): void {
+    if (!search || search.trim() === '') {
+      this.booksFlow.next(this.books);
+      return;
+    }
+
+    const q = search.trim().toLowerCase();
+    const filtered = this.books.filter((book) =>
+      book.name.toLowerCase().includes(q)
+    );
+    this.booksFlow.next(filtered);
   }
 
   private saveBooks() {
@@ -39,7 +39,7 @@ export class BooksService {
 
   public selectBookById(bookId: string) {
     return this.booksFlow.pipe(
-      map((books) => books.find(book => book.id === bookId))
+      map((books) => books.find((book) => book.id === bookId)),
     );
   }
 
@@ -59,9 +59,8 @@ export class BooksService {
     const index = this.books.findIndex((book) => book.id === updatedBook.id);
     if (index !== -1) {
       this.books[index] = {...updatedBook};
+      this.booksFlow.next(this.books);
       this.saveBooks();
     }
-
-    this.booksFlow.next(this.books);
   }
 }

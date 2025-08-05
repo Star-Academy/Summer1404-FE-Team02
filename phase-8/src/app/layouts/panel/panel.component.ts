@@ -1,6 +1,5 @@
-import {Component, computed, inject, OnInit, signal} from '@angular/core';
-import { BooksService } from '../../services/books.service';
-import {Book} from "../../pages/home/books/books.model";
+import {Component, computed, inject} from '@angular/core';
+import {BooksService} from '../../services/books.service';
 
 @Component({
   selector: 'app-panel',
@@ -9,7 +8,7 @@ import {Book} from "../../pages/home/books/books.model";
 })
 export class PanelComponent {
   public readonly booksService = inject(BooksService);
-  public books = computed(() => this.booksService.getBooks(signal("")));
+  public books = computed(() => this.booksService.getBooks());
 
   public selectedId!: string;
   public bookName!: string;

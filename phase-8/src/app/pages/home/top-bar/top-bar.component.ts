@@ -1,6 +1,6 @@
-import {Component, inject, input, signal,} from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BooksService } from '../../../services/books.service';
+import {Component, inject} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {BooksService} from '../../../services/books.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -10,8 +10,10 @@ import { BooksService } from '../../../services/books.service';
   styleUrl: './top-bar.component.css',
 })
 export class TopBarComponent {
-  search = signal<string>("");
+  booksService = inject(BooksService)
 
   onChangeSearchInput(event: Event) {
+    const value = (event.target as HTMLInputElement).value;
+    this.booksService.searchBooks(value);
   }
 }

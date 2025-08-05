@@ -1,6 +1,7 @@
-import {Component, computed, inject, input, output} from '@angular/core';
-import {BooksService} from '../../../services/books.service';
-import {BookCardComponent} from './book-card/book-card.component';
+import { Component, inject } from '@angular/core';
+import { BooksService } from '../../../services/books.service';
+import { BookCardComponent } from './book-card/book-card.component';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-books',
@@ -11,7 +12,6 @@ import {BookCardComponent} from './book-card/book-card.component';
 })
 export class BooksComponent {
   private readonly booksService = inject(BooksService);
-  search = output<string>();
 
-  public books = computed(() => this.booksService.getBooks())
+  books = toSignal(this.booksService.getBooks(), { initialValue: [] });
 }

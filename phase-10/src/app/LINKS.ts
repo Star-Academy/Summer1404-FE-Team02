@@ -13,15 +13,5 @@ export const LINKS = [
     id: 3,
     link: "contact",
     name: "Contact",
-  },
-  {
-    id: 4,
-    link: "/masih",
-    name: "Masih",
-  },
-  {
-    id: 5,
-    link: "/amin",
-    name: "Amin",
   }
 ]

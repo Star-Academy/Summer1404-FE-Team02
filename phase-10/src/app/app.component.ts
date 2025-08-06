@@ -12,4 +12,5 @@ import {LINKS} from './LINKS';
 
 export class AppComponent {
   public readonly links = LINKS;
+
 }

@@ -1,1 +1,12 @@
-<router-outlet/>
+<nav>
+  <a>Phase-10</a>
+  <ul id="menu">
+    @for (link of links; track link.id) {
+      <li>
+        <a [routerLink]="link.link" routerLinkActive="active">{{ link.name }}</a>
+      </li>
+    }
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>

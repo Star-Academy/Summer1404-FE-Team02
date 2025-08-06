@@ -1,13 +1,15 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {LINKS} from './LINKS';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterLink, RouterLinkActive, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent {
-  title = 'phase-10';
+  public readonly links = LINKS;
 }

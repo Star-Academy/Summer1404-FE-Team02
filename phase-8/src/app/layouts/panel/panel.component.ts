@@ -47,7 +47,7 @@ export class PanelComponent {
     this.changeDialogDeleteStatus();
 
     if (isAccept) {
-      this.booksService.deleteBook(this.selectedId.toString());
+      this.booksService.deleteBook(this.selectedId().toString());
     }
   }
 

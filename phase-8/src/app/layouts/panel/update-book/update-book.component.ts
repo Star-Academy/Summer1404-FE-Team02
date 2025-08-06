@@ -1,18 +1,12 @@
 import {
   Component,
-  EventEmitter,
-  Input,
-  Output,
   inject,
-  OnChanges,
-  SimpleChanges,
   ViewChild,
   AfterViewInit,
-  ElementRef, signal,
+  ElementRef, input, output, computed,
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BooksService } from '../../../services/books.service';
-import { Book } from '../../../pages/home/books/books.model';
+import {FormsModule} from '@angular/forms';
+import {BooksService} from '../../../services/books.service';
 
 @Component({
   selector: 'app-update-book',
@@ -21,12 +15,14 @@ import { Book } from '../../../pages/home/books/books.model';
   templateUrl: './update-book.component.html',
   styleUrl: '../shared/shared.component.css',
 })
-export class UpdateBookComponent implements OnChanges, AfterViewInit {
+export class UpdateBookComponent implements AfterViewInit {
   private readonly booksService = inject(BooksService);
-  public book!: Book;
+  public id = input<string>()
+  public closeModal = output()
+  public book = computed(() => {
+    return this.booksService.selectBookById(this.id()!)
+  })
 
-  @Input() id!: string;
-  @Output() closeModal = new EventEmitter();
 
   @ViewChild('modalOverlay') overlayRef!: ElementRef;
 
@@ -35,7 +31,7 @@ export class UpdateBookComponent implements OnChanges, AfterViewInit {
   }
 
   public onUpdateBook() {
-    this.booksService.updateBook(this.book);
+    this.booksService.updateBook(this.book().subscribe(() =>{}));
     this.closeModal.emit();
   }
 
@@ -46,16 +42,6 @@ export class UpdateBookComponent implements OnChanges, AfterViewInit {
       if (event.key === 'Escape') {
         this.onClose();
       }
-    }
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['id'] && this.id) {
-      this.booksService.selectBookById(this.id).subscribe((book) => {
-        if (book) {
-          this.book = { ...book};
-        }
-      });
     }
   }
 

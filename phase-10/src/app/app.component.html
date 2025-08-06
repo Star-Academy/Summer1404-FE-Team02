@@ -1,9 +1,9 @@
 <nav>
   <a>Phase-10</a>
-  <ul id="menu">
+  <ul>
     @for (link of links; track link.id) {
       <li>
-        <a [routerLink]="link.link" routerLinkActive="active"
+        <a [routerLink]="link.path" routerLinkActive="active"
            [routerLinkActiveOptions]="{exact:true}">{{ link.name }}</a>
       </li>
     }

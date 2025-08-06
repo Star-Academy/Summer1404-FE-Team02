@@ -1,17 +1,17 @@
 export const LINKS = [
   {
     id: 1,
-    link: "",
+    path: "",
     name: "Home"
   },
   {
     id: 2,
-    link: "about",
+    path: "about",
     name: "About",
   },
   {
     id: 3,
-    link: "contact",
+    path: "contact",
     name: "Contact",
   }
 ]

@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BooksService} from '../../../services/books.service';
+import {toSignal} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-update-book',
@@ -19,8 +20,10 @@ export class UpdateBookComponent implements AfterViewInit {
   private readonly booksService = inject(BooksService);
   public id = input<string>()
   public closeModal = output()
+
+
   public book = computed(() => {
-    return this.booksService.selectBookById(this.id()!)
+    return toSignal(() => this.booksService.selectBookById(this.id()!))
   })
 
 
@@ -31,7 +34,7 @@ export class UpdateBookComponent implements AfterViewInit {
   }
 
   public onUpdateBook() {
-    this.booksService.updateBook(this.book().subscribe(() =>{}));
+    this.booksService.updateBook(this.book());
     this.closeModal.emit();
   }
 

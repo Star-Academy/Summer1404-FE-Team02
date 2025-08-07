@@ -1,4 +1,4 @@
-import {Injectable, Signal} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Book} from '../pages/home/books/books.model';
 import {BOOKS} from '../pages/home/books/DUMMY_BOOKS';
 import {BehaviorSubject, map, Observable} from 'rxjs';
@@ -28,7 +28,7 @@ export class BooksService {
 
     const q = search.trim().toLowerCase();
     const filtered = this.books.filter((book) =>
-      book.name.toLowerCase().includes(q)
+      book.name.toLowerCase().includes(q),
     );
     this.booksFlow.next(filtered);
   }

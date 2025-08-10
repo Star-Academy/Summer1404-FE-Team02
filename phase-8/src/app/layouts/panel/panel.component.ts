@@ -11,44 +11,34 @@ export class PanelComponent {
   public readonly booksService = inject(BooksService);
   public books = toSignal(this.booksService.getBooks(), {initialValue: []});
 
-  public selectedId = signal<string>("");
-  public bookName =  signal<string>("");
+  public selectedBookId = signal<string>("");
 
-  public isModalAddOpen = signal<boolean>(false);
-  public isModalEditOpen = signal<boolean>(false);
+  public isAddModalOpen = signal<boolean>(false);
+  public isEditModalOpen = signal<boolean>(false);
 
   public isDeleteDialogOpen = signal<boolean>(false);
   public isDeleteSuccess = signal<boolean>(false);
 
-  public changeModalAddStatus() {
-    this.isModalAddOpen.update((currentValue) => !currentValue);
+  public changeAddModalStatus() {
+    this.isAddModalOpen.update((currentValue) => !currentValue);
   }
 
-  public changeModalEditStatus() {
-    this.isModalEditOpen.update((currentValue) => !currentValue);
+  public changeEditModalStatus() {
+    this.isEditModalOpen.update((currentValue) => !currentValue);
   }
 
-  public changeDialogDeleteStatus() {
+  public changeDeleteDialogStatus() {
     this.isDeleteDialogOpen.update((currentValue) => !currentValue);
   }
 
-  public setSelectedEditId(id: string) {
-    this.selectedId.set(id);
-    this.changeModalEditStatus();
+  public onEditBook(id: string) {
+    this.selectedBookId.set(id);
+    this.changeEditModalStatus();
   }
 
-  public setSelectedDeleteId(id: string, name: string) {
-    this.selectedId.set(id);
-    this.bookName.set(name);
-    this.changeDialogDeleteStatus();
-  }
-
-  public onDeleteBook(isAccept: boolean) {
-    this.changeDialogDeleteStatus();
-
-    if (isAccept) {
-      this.booksService.deleteBook(this.selectedId().toString());
-    }
+  public setSelectedDeleteId(id: string) {
+    this.selectedBookId.set(id);
+    this.changeDeleteDialogStatus();
   }
 
   public onDeleteSuccess(action: 'delete' | 'dismiss') {

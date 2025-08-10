@@ -14,6 +14,5 @@ export class TopBarComponent {
 
   public onChangeSearchInput(event: Event) {
     const value = (event.target as HTMLInputElement).value;
-    this.booksService.searchBooks(value);
   }
 }

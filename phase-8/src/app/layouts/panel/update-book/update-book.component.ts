@@ -3,11 +3,12 @@ import {
   inject,
   ViewChild,
   AfterViewInit,
-  ElementRef, input, output, computed,
+  ElementRef, input, output,
 } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BooksService} from '../../../services/books.service';
 import {toSignal} from "@angular/core/rxjs-interop";
+import {Book} from "../../../pages/home/books/books.model";
 
 @Component({
   selector: 'app-update-book',
@@ -18,14 +19,10 @@ import {toSignal} from "@angular/core/rxjs-interop";
 })
 export class UpdateBookComponent implements AfterViewInit {
   private readonly booksService = inject(BooksService);
-  public id = input<string>()
+  public id = input<string>("")
   public closeModal = output()
 
-
-  public book = computed(() => {
-    return toSignal(() => this.booksService.selectBookById(this.id()!))
-  })
-
+  public book = toSignal(this.booksService.selectBookById(this.id()), {initialValue: {} as Book})
 
   @ViewChild('modalOverlay') overlayRef!: ElementRef;
 
@@ -37,17 +34,6 @@ export class UpdateBookComponent implements AfterViewInit {
     this.booksService.updateBook(this.book());
     this.closeModal.emit();
   }
-
-  public onCloseModal(event: MouseEvent | KeyboardEvent) {
-    if (event instanceof MouseEvent) {
-      if (event.target === event.currentTarget) this.onClose();
-    } else if (event instanceof KeyboardEvent) {
-      if (event.key === 'Escape') {
-        this.onClose();
-      }
-    }
-  }
-
 
   ngAfterViewInit(): void {
     this.overlayRef.nativeElement.focus();

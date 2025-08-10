@@ -1,4 +1,6 @@
-import {Component, input, output} from '@angular/core';
+import {Component, inject, input, OnInit, Signal, WritableSignal} from '@angular/core';
+import {BooksService} from "../../../services/books.service";
+import {Book} from "../../../pages/home/books/books.model";
 
 @Component({
   selector: 'app-delete-dialog',
@@ -10,15 +12,20 @@ import {Component, input, output} from '@angular/core';
     './delete-dialog.component.css',
   ],
 })
-export class DeleteDialogComponent {
-  public name = input.required<string>()
-  public submitted = output<boolean>()
-  public successDelete = output<"delete" | "dismiss">()
+export class DeleteDialogComponent implements OnInit {
+  public id = input.required<string>();
+  private bookService = inject(BooksService);
+  public book!: WritableSignal<Book>;
+
+  ngOnInit() {
+    this.bookService.selectBookById(this.id()).subscribe(book => {
+      this.book.set(book)
+    })
+  }
 
   public onSubmit(value: boolean) {
-    this.submitted.emit(value);
     if (value) {
-      this.successDelete.emit('delete');
+      this.bookService.deleteBook(this.id());
     }
   }
 }

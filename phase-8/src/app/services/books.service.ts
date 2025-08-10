@@ -7,59 +7,46 @@ import {BehaviorSubject, map, Observable} from 'rxjs';
   providedIn: 'root',
 })
 export class BooksService {
-  private books: Book[] = [];
+  private booksSource: Book[] = [];
   public booksFlow = new BehaviorSubject<Book[]>([]);
 
   constructor() {
-    const isExistBooks = localStorage.getItem('books');
-    this.books = isExistBooks ? JSON.parse(isExistBooks) : BOOKS;
-    this.booksFlow.next(this.books);
+    const storedBooks = localStorage.getItem('booksSource');
+    this.booksSource = storedBooks ? JSON.parse(storedBooks) : BOOKS;
+    this.booksFlow.next(this.booksSource);
   }
 
   public getBooks(): Observable<Book[]> {
     return this.booksFlow.asObservable();
   }
 
-  public searchBooks(search: string): void {
-    if (!search || search.trim() === '') {
-      this.booksFlow.next(this.books);
-      return;
-    }
-
-    const q = search.trim().toLowerCase();
-    const filtered = this.books.filter((book) =>
-      book.name.toLowerCase().includes(q),
-    );
-    this.booksFlow.next(filtered);
-  }
-
   private saveBooks() {
-    localStorage.setItem('books', JSON.stringify(this.books));
+    localStorage.setItem('booksSource', JSON.stringify(this.booksSource));
   }
 
   public selectBookById(bookId: string) {
     return this.booksFlow.pipe(
-      map((books) => books.find((book) => book.id === bookId)),
+      map((books) => books.find((book) => book.id === bookId)!),
     );
   }
 
   public deleteBook(bookId: string) {
-    this.books = this.books.filter((book) => book.id !== bookId);
-    this.booksFlow.next(this.books);
+    this.booksSource = this.booksSource.filter((book) => book.id !== bookId);
+    this.booksFlow.next(this.booksSource);
     this.saveBooks();
   }
 
   public addBook(bookData: Book) {
-    this.books.push(bookData);
-    this.booksFlow.next(this.books);
+    this.booksSource.push(bookData);
+    this.booksFlow.next(this.booksSource);
     this.saveBooks();
   }
 
   public updateBook(updatedBook: Book) {
-    const index = this.books.findIndex((book) => book.id === updatedBook.id);
+    const index = this.booksSource.findIndex((book) => book.id === updatedBook.id);
     if (index !== -1) {
-      this.books[index] = {...updatedBook};
-      this.booksFlow.next(this.books);
+      this.booksSource[index] = {...updatedBook};
+      this.booksFlow.next(this.booksSource);
       this.saveBooks();
     }
   }

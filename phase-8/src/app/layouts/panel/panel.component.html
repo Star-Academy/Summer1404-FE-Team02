@@ -1,18 +1,17 @@
-@if (isModalAddOpen()) {
-  <app-add-book (closeModal)="changeModalAddStatus()" />
+@if (isAddModalOpen()) {
+  <app-add-book (closeModal)="changeAddModalStatus()"/>
 }
-@if (isModalEditOpen()) {
-  <app-update-book (closeModal)="changeModalEditStatus()" [id]="selectedId()" />
+@if (isEditModalOpen()) {
+  <app-update-book (closeModal)="changeEditModalStatus()" [id]="selectedBookId()"/>
 }
 @if (isDeleteDialogOpen()) {
   <app-delete-dialog
-    (submitted)="onDeleteBook($event)"
-    [name]="bookName()"
+    [id]="selectedBookId()"
     (successDelete)="onDeleteSuccess($event)"
   />
 }
 @if (isDeleteSuccess()) {
-  <app-success-delete-toast (dismissed)="onDeleteSuccess($event)" />
+  <app-success-delete-toast (dismissed)="onDeleteSuccess($event)"/>
 }
 
 <div class="table-wrapper modal-backdrop">
@@ -30,20 +29,20 @@
       </svg>
     </button>
 
-    <button (click)="changeModalAddStatus()" class="add-book__btn">
+    <button (click)="changeAddModalStatus()" class="add-book__btn">
       Add book
     </button>
   </div>
   <div class="table-container">
     <table>
       <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Genre</th>
-          <th>Price</th>
-          <th>Action</th>
-        </tr>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Genre</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
       </thead>
       @if (books().length) {
         <tbody>
@@ -57,7 +56,7 @@
                 <button
                   type="button"
                   class="add-book__edit-btn"
-                  (click)="setSelectedEditId(book.id)"
+                  (click)="onEditBook(book.id)"
                 >
                   <svg
                     width="20"
@@ -79,7 +78,7 @@
                 <button
                   type="button"
                   class="add-book__delete-btn"
-                  (click)="setSelectedDeleteId(book.id, book.name)"
+                  (click)="setSelectedDeleteId(book.id)"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

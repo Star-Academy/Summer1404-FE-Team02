@@ -1,7 +1,7 @@
 <div
   class="modal-overlay"
-  (click)="onSubmit(false)"
-  (keydown.enter)="onSubmit(true)"
+  (click)="onClose()"
+  (keydown.enter)="onClose()"
   tabindex="0"
 >
   <div class="modal">
@@ -9,7 +9,7 @@
       <p class="delete-dialog-title">
         <span>Delete book</span> <span class="truncate">"{{ book().name }}"</span> ?
       </p>
-      <button class="modal-close" (click)="onSubmit(false)">
+      <button class="modal-close" (click)="onClose()">
         <svg
           width="20px"
           height="20px"
@@ -28,10 +28,10 @@
     </div>
     <div class="modal-actions">
       <div style="display: flex; gap: 1rem">
-        <button type="button" (click)="onSubmit(false)">Cancel</button>
+        <button type="button" (click)="onClose()">Cancel</button>
         <button
           type="button"
-          (click)="onSubmit(true)"
+          (click)="onDelete()"
           class="accept-delete-btn"
         >
           Ok

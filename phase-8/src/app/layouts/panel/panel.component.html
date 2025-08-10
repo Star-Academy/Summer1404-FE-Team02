@@ -5,10 +5,7 @@
   <app-update-book (closeModal)="changeEditModalStatus()" [id]="selectedBookId()"/>
 }
 @if (isDeleteDialogOpen()) {
-  <app-delete-dialog
-    [id]="selectedBookId()"
-    (successDelete)="onDeleteSuccess($event)"
-  />
+  <app-delete-dialog (closeModal)="changeDeleteDialogStatus()" [id]="selectedBookId()" />
 }
 @if (isDeleteSuccess()) {
   <app-success-delete-toast (dismissed)="onDeleteSuccess($event)"/>

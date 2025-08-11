@@ -7,8 +7,8 @@ export const routes: Routes = [
       import('./layouts/main/main.module').then((m) => m.MainModule),
   },
   {
-    path: 'admin',
+    path: 'admin-panel',
     loadChildren: () =>
-      import('./layouts/panel/panel.module').then((m) => m.PanelModule),
+      import('./layouts/admin-panel/admin-panel.module').then((m) => m.AdminPanelModule),
   },
 ];

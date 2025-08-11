@@ -9,7 +9,7 @@ import {
   OnInit, viewChild
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BooksService } from '../../../services/books.service';
+import { BookService } from '../../../services/book.service';
 import { Book } from '../../../pages/home/books/books.model';
 
 @Component({
@@ -20,7 +20,7 @@ import { Book } from '../../../pages/home/books/books.model';
   styleUrl: '../shared/shared.component.css'
 })
 export class UpdateBookComponent implements OnInit, AfterViewInit {
-  private readonly bookService = inject(BooksService);
+  private readonly bookService = inject(BookService);
   public id = input<string>('');
   public closeModal = output();
 

@@ -9,7 +9,7 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { BooksService } from '../../../services/books.service';
+import { BookService } from '../../../services/book.service';
 import { Book } from '../../../pages/home/books/books.model';
 
 @Component({
@@ -24,7 +24,7 @@ import { Book } from '../../../pages/home/books/books.model';
 })
 
 export class DeleteDialogComponent implements OnInit, AfterViewInit {
-  private bookService = inject(BooksService);
+  private bookService = inject(BookService);
   public id = input<string>('');
   public closeModal = output<void>();
 

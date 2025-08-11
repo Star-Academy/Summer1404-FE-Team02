@@ -1,6 +1,6 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BooksService } from '../../../services/books.service';
+import { BookService } from '../../../services/book.service';
 
 @Component({
   selector: 'app-add-book',
@@ -10,7 +10,7 @@ import { BooksService } from '../../../services/books.service';
   styleUrl: '../shared/shared.component.css',
 })
 export class AddBookComponent {
-  private readonly booksService = inject(BooksService);
+  private readonly booksService = inject(BookService);
 
   public name = '';
   public image = '';

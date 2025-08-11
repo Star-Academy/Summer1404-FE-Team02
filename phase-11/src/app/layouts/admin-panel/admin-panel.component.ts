@@ -1,5 +1,5 @@
 import {Component, inject, signal} from '@angular/core';
-import {BooksService} from '../../services/books.service';
+import {BookService} from '../../services/book.service';
 import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
@@ -8,7 +8,7 @@ import {toSignal} from '@angular/core/rxjs-interop';
   styleUrl: './admin-panel.component.css',
 })
 export class AdminPanelComponent {
-  public readonly booksService = inject(BooksService);
+  public readonly booksService = inject(BookService);
   public books = toSignal(this.booksService.getBooks(), {initialValue: []});
 
   public selectedBookId = signal<string>("");

@@ -1,7 +1,7 @@
 import {Component, OnInit, inject, signal} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../home/books/books.model';
-import { BooksService } from '../../services/books.service';
+import { BookService } from '../../services/book.service';
 
 @Component({
   selector: 'app-book-detail',
@@ -12,7 +12,7 @@ import { BooksService } from '../../services/books.service';
 export class BookDetailComponent implements OnInit {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
-  private readonly booksService = inject(BooksService);
+  private readonly booksService = inject(BookService);
 
   private bookId: string | null = null;
   public book = signal<Book>({} as Book);

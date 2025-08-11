@@ -6,7 +6,7 @@ import {BehaviorSubject, map, Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class BooksService {
+export class BookService {
   private booksSource: Book[] = [];
   public booksFlow = new BehaviorSubject<Book[]>([]);
 

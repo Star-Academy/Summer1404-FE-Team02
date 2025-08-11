@@ -1,7 +1,6 @@
-import {Component, inject, input, output} from '@angular/core';
+import {Component, inject, input, OnInit, output, signal} from '@angular/core';
 import {BooksService} from "../../../services/books.service";
 import {Book} from "../../../pages/home/books/books.model";
-import {toSignal} from "@angular/core/rxjs-interop";
 
 @Component({
   selector: 'app-delete-dialog',
@@ -14,12 +13,12 @@ import {toSignal} from "@angular/core/rxjs-interop";
   ],
 })
 
-export class DeleteDialogComponent {
+export class DeleteDialogComponent implements OnInit {
   private bookService = inject(BooksService);
   public id = input<string>("");
   public closeModal = output<void>();
-  
-  public book = toSignal(this.bookService.selectBookById(this.id()), {initialValue: {} as Book});
+
+  public book = signal<Book | null>(null);
 
   public onDelete() {
     this.bookService.deleteBook(this.id());
@@ -27,5 +26,9 @@ export class DeleteDialogComponent {
 
   public onClose() {
     this.closeModal.emit()
+  }
+
+  ngOnInit() {
+    this.bookService.selectBookById(this.id()).subscribe(book => this.book.set(book))
   }
 }

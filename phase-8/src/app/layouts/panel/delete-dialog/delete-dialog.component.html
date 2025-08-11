@@ -7,7 +7,7 @@
   <div class="modal">
     <div class="modal-book-header">
       <p class="delete-dialog-title">
-        <span>Delete book</span> <span class="truncate">"{{ book().name }}"</span> ?
+        <span>Delete book</span> <span class="truncate">"{{ book()?.name }}"</span> ?
       </p>
       <button class="modal-close" (click)="onClose()">
         <svg

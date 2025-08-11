@@ -30,27 +30,27 @@
     <form (submit)="onUpdateBook()" class="modal-book__form">
       <label>
         <span class="modal-book__form__label">Name:</span>
-        <input type="text" [(ngModel)]="book().name" name="name" />
+        <input type="text" [(ngModel)]="book()?.name" name="name" />
       </label>
       <label>
         <span class="modal-book__form__label">Image (link):</span>
-        <input type="text" [(ngModel)]="book().image" name="image" />
+        <input type="text" [(ngModel)]="book()?.image" name="image" />
       </label>
       <label>
         <span class="modal-book__form__label">Genre:</span>
-        <input type="text" [(ngModel)]="book().genre" name="genre" />
+        <input type="text" [(ngModel)]="book()?.genre" name="genre" />
       </label>
       <label>
         <span class="modal-book__form__label">Author:</span>
-        <input type="text" [(ngModel)]="book().author" name="author" />
+        <input type="text" [(ngModel)]="book()?.author" name="author" />
       </label>
       <label>
         <span class="modal-book__form__label">Publish date:</span>
-        <input type="date" [(ngModel)]="book().publishDate" name="publish-date" />
+        <input type="date" [(ngModel)]="book()?.publishDate" name="publish-date" />
       </label>
       <label>
         <span class="modal-book__form__label">Price:</span>
-        <input type="number" [(ngModel)]="book().price" name="price" />
+        <input type="number" [(ngModel)]="book()?.price" name="price" />
       </label>
       <div class="modal-actions">
         <button type="button" (click)="onClose()">Cancel</button>

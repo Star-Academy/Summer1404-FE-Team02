@@ -3,7 +3,7 @@ import {
   inject,
   ViewChild,
   AfterViewInit,
-  ElementRef, input, output,
+  ElementRef, input, output, signal,
 } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BooksService} from '../../../services/books.service';
@@ -18,11 +18,11 @@ import {Book} from "../../../pages/home/books/books.model";
   styleUrl: '../shared/shared.component.css',
 })
 export class UpdateBookComponent implements AfterViewInit {
-  private readonly booksService = inject(BooksService);
+  private readonly bookService = inject(BooksService);
   public id = input<string>("")
   public closeModal = output()
 
-  public book = toSignal(this.booksService.selectBookById(this.id()), {initialValue: {} as Book})
+  public book = signal<Book | null>(null)
 
   @ViewChild('modalOverlay') overlayRef!: ElementRef;
 
@@ -31,11 +31,15 @@ export class UpdateBookComponent implements AfterViewInit {
   }
 
   public onUpdateBook() {
-    this.booksService.updateBook(this.book());
+    this.bookService.updateBook(this.book()!);
     this.closeModal.emit();
   }
 
   ngAfterViewInit(): void {
     this.overlayRef.nativeElement.focus();
+  }
+
+  ngOnInit() {
+    this.bookService.selectBookById(this.id()).subscribe(book => this.book.set(book));
   }
 }

@@ -1,0 +1,7 @@
+<header>
+  <div>
+    @for (link of links; track link.title) {
+      <a [routerLink]="link.src">{{ link.title }}</a>
+    }
+  </div>
+</header>

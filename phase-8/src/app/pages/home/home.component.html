@@ -1,2 +1,2 @@
-<app-top-bar />
-<app-books />
+<app-top-bar (searchQuery)="onChangeSearch($event)"/>
+<app-books [searchQuery]="search()"/>

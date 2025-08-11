@@ -14,7 +14,7 @@ import {PanelModule} from "./layouts/panel/panel.module";
     RouterOutlet,
     BrowserModule,
     MainModule,
-    PanelModule
+    PanelModule,
   ],
 })
 export class AppModule {}

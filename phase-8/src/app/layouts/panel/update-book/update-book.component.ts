@@ -11,7 +11,6 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BooksService } from '../../../services/books.service';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { Book } from '../../../pages/home/books/books.model';
 
 @Component({

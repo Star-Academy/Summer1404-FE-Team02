@@ -8,7 +8,7 @@ import {Component, signal} from '@angular/core';
 export class HomeComponent {
   public search = signal<string>("")
 
-  public onChangeSearch(search: string) {
+  public onChangeSearchQuery(search: string) {
     this.search.set(search);
   }
 }

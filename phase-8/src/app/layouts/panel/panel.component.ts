@@ -3,7 +3,7 @@ import {BooksService} from '../../services/books.service';
 import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-panel',
+  selector: 'app-admin-panel',
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.css',
 })

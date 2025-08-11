@@ -3,11 +3,11 @@ import {BooksService} from '../../services/books.service';
 import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({
-  selector: 'app-panel',
-  templateUrl: './panel.component.html',
-  styleUrl: './panel.component.css',
+  selector: 'app-admin-panel',
+  templateUrl: './admin-panel.component.html',
+  styleUrl: './admin-panel.component.css',
 })
-export class PanelComponent {
+export class AdminPanelComponent {
   public readonly booksService = inject(BooksService);
   public books = toSignal(this.booksService.getBooks(), {initialValue: []});
 

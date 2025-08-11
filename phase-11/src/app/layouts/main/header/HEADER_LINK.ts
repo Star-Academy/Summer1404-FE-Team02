@@ -5,6 +5,6 @@ export const HEADER_LINK = [
   },
   {
     title: 'Add book',
-    src: '/admin',
+    src: '/admin-panel',
   },
 ];

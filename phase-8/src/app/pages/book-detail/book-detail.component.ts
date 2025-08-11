@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import {Component, OnInit, inject, signal} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../home/books/books.model';
 import { BooksService } from '../../services/books.service';
@@ -15,7 +15,7 @@ export class BookDetailComponent implements OnInit {
   private readonly booksService = inject(BooksService);
 
   private bookId: string | null = null;
-  public book!: Book;
+  public book = signal<Book>({} as Book);
 
   ngOnInit(): void {
     this.bookId = this.route.snapshot.paramMap.get('bookId');
@@ -23,7 +23,7 @@ export class BookDetailComponent implements OnInit {
     if (this.bookId) {
       this.booksService.selectBookById(this.bookId).subscribe(book => {
         if (book) {
-          this.book = book;
+          this.book.set(book);
         }
         else {
           this.router.navigate(['/'], { replaceUrl: true });
@@ -33,7 +33,7 @@ export class BookDetailComponent implements OnInit {
   }
 
   get formattedDate(): string {
-    return new Date(this.book.publishDate).toLocaleDateString('en-US', {
+    return new Date(this.book().publishDate).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
       day: 'numeric',

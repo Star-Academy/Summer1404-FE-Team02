@@ -1,7 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { type Book } from '../books.model';
-import { RouterLink } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import {Component, input} from '@angular/core';
+import {type Book} from '../books.model';
+import {RouterLink} from '@angular/router';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-book',
@@ -11,5 +11,5 @@ import { DatePipe } from '@angular/common';
   styleUrl: './book-card.component.css',
 })
 export class BookCardComponent {
-  @Input({ required: true }) book!: Book;
+  book = input.required<Book>();
 }

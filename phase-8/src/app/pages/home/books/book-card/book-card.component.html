@@ -1,28 +1,28 @@
 <article class="book-article">
   <div class="book-wrapper">
-    <a [routerLink]="['/books', book.id]" class="book-img-wrapper">
+    <a [routerLink]="['/books', book().id]" class="book-img-wrapper">
       <img
         class="book-img"
-        [src]="book.image"
-        [alt]="book.name"
+        [src]="book().image"
+        [alt]="book().name"
         loading="lazy"
         width="200"
         height="300"
       />
     </a>
     <div class="book-content">
-      <h3 class="book-title">{{ book.name }}</h3>
-      <p class="book-author">{{ book.author }}</p>
+      <h3 class="book-title">{{ book().name }}</h3>
+      <p class="book-author">{{ book().author }}</p>
       <p class="book-genre">
-        @for (genre of book.genre; track genre) {
+        @for (genre of book().genre; track genre) {
           <span class="book-genre__item">{{ genre }}</span>
         }
       </p>
       <p class="book-publish">
         Published:
-        <time [dateTime]="book.publishDate">{{ book.publishDate | date }}</time>
+        <time [dateTime]="book().publishDate">{{ book().publishDate | date }}</time>
       </p>
-      <p class="book-price"><span>$</span>{{ book.price }}</p>
+      <p class="book-price"><span>$</span>{{ book().price }}</p>
     </div>
   </div>
 </article>

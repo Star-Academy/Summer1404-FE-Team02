@@ -1,6 +1,16 @@
-import {Component, inject, input, OnInit, output, signal} from '@angular/core';
-import {BooksService} from "../../../services/books.service";
-import {Book} from "../../../pages/home/books/books.model";
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  inject,
+  input,
+  OnInit,
+  output,
+  signal,
+  viewChild,
+} from '@angular/core';
+import { BooksService } from '../../../services/books.service';
+import { Book } from '../../../pages/home/books/books.model';
 
 @Component({
   selector: 'app-delete-dialog',
@@ -9,26 +19,41 @@ import {Book} from "../../../pages/home/books/books.model";
   templateUrl: './delete-dialog.component.html',
   styleUrls: [
     '../shared/shared.component.css',
-    './delete-dialog.component.css',
-  ],
+    './delete-dialog.component.css'
+  ]
 })
 
-export class DeleteDialogComponent implements OnInit {
+export class DeleteDialogComponent implements OnInit, AfterViewInit {
   private bookService = inject(BooksService);
-  public id = input<string>("");
+  public id = input<string>('');
   public closeModal = output<void>();
+
+
+  private overlayRef = viewChild<ElementRef>('modalOverlay');
 
   public book = signal<Book | null>(null);
 
   public onDelete() {
     this.bookService.deleteBook(this.id());
+    this.onClose();
+  }
+
+  ngAfterViewInit(): void {
+    this.overlayRef()?.nativeElement.focus();
+  }
+
+  public onCloseModalOverlay(event: Event) {
+    const targetInput = event.target as HTMLInputElement;
+    if (targetInput.classList.contains('modal-overlay')) {
+      this.onClose();
+    }
   }
 
   public onClose() {
-    this.closeModal.emit()
+    this.closeModal.emit();
   }
 
   ngOnInit() {
-    this.bookService.selectBookById(this.id()).subscribe(book => this.book.set(book))
+    this.bookService.selectBookById(this.id()).subscribe(book => this.book.set(book));
   }
 }

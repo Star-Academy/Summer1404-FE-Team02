@@ -1,13 +1,12 @@
 import {
   Component,
   inject,
-  ViewChild,
   AfterViewInit,
   ElementRef,
   input,
   output,
   signal,
-  OnInit,
+  OnInit, viewChild
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BooksService } from '../../../services/books.service';
@@ -18,7 +17,7 @@ import { Book } from '../../../pages/home/books/books.model';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './update-book.component.html',
-  styleUrl: '../shared/shared.component.css',
+  styleUrl: '../shared/shared.component.css'
 })
 export class UpdateBookComponent implements OnInit, AfterViewInit {
   private readonly bookService = inject(BooksService);
@@ -27,10 +26,17 @@ export class UpdateBookComponent implements OnInit, AfterViewInit {
 
   public book = signal<Book>({} as Book);
 
-  @ViewChild('modalOverlay') overlayRef!: ElementRef;
+  private overlayRef = viewChild<ElementRef>('modalOverlay');
 
   public onClose() {
     this.closeModal.emit();
+  }
+
+  public onCloseModalOverlay(event: Event) {
+    const targetInput = event.target as HTMLInputElement;
+    if (targetInput.classList.contains('modal-overlay')) {
+      this.onClose();
+    }
   }
 
   public onUpdateBook() {
@@ -46,7 +52,7 @@ export class UpdateBookComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.overlayRef.nativeElement.focus();
+    this.overlayRef()?.nativeElement.focus();
   }
 
   ngOnInit() {

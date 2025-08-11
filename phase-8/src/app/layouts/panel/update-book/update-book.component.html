@@ -4,6 +4,8 @@
   tabindex="0"
   role="button"
   aria-label="Close modal"
+  (keydown.escape)="onClose()"
+  (click)="onCloseModalOverlay($event)"
 >
   <div class="modal">
     <div class="modal-book-header">

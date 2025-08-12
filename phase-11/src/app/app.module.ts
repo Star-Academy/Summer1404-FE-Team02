@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { BrowserModule } from '@angular/platform-browser';
 import { MainModule } from './layouts/main/main.module';
 import {AdminPanelModule} from "./layouts/admin-panel/admin-panel.module";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -15,6 +16,7 @@ import {AdminPanelModule} from "./layouts/admin-panel/admin-panel.module";
     BrowserModule,
     MainModule,
     AdminPanelModule,
+    HttpClientModule,
   ],
 })
 export class AppModule {}

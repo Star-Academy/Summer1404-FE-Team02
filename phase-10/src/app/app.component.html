@@ -1,0 +1,13 @@
+<nav>
+  <a>Phase-10</a>
+  <ul>
+    @for (link of links; track link.id) {
+      <li>
+        <a [routerLink]="link.path" routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact:true}">{{ link.name }}</a>
+      </li>
+    }
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>

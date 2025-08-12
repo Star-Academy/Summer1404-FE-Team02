@@ -11,13 +11,14 @@ import {
 import { FormsModule } from '@angular/forms';
 import { BookService } from '../../../shared/services/book.service';
 import { Book } from '../../main/pages/home/components/books/books.model';
+import {ModalComponent} from "../shared/components/modal/modal.component";
 
 @Component({
   selector: 'app-update-book',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ModalComponent],
   templateUrl: './update-book.component.html',
-  styleUrl: '../shared/shared.component.css'
+  styleUrl: './update-book.component.css'
 })
 export class UpdateBookComponent implements OnInit, AfterViewInit {
   private readonly bookService = inject(BookService);

@@ -1,13 +1,14 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BookService } from '../../../shared/services/book.service';
+import {ModalComponent} from "../shared/components/modal/modal.component";
 
 @Component({
   selector: 'app-add-book',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ModalComponent],
   templateUrl: './add-book.component.html',
-  styleUrl: '../shared/shared.component.css',
+  styleUrl: './add-book.component.css'
 })
 export class AddBookComponent {
   private readonly booksService = inject(BookService);
@@ -27,7 +28,7 @@ export class AddBookComponent {
 
   public addBook() {
     this.booksService.addBook({
-      id: new Date().getDate().toString(),
+      id: new Date().getMilliseconds().toString(),
       name: this.name,
       image: this.image,
       genre: [...this.genre.split(',')],

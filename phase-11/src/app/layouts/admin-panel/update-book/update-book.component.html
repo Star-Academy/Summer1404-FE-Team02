@@ -1,12 +1,4 @@
-<div
-  #modalOverlay
-  class="modal-overlay"
-  tabindex="0"
-  role="button"
-  aria-label="Close modal"
-  (keydown.escape)="onClose()"
-  (click)="onCloseModalOverlay($event)"
->
+<app-modal [onClose]="onClose" [onCloseModalOverlay]="onCloseModalOverlay">
   <div class="modal">
     <div class="modal-book-header">
       <h2>Edit Book</h2>
@@ -57,4 +49,4 @@
       </div>
     </form>
   </div>
-</div>
+</app-modal>

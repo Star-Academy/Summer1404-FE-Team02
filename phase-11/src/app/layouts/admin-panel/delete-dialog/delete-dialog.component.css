@@ -1,9 +1,23 @@
-.accept-delete-btn {
-  background-color: red !important;
+.modal-book-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4rem;
 }
-.accept-delete-btn {
-  background-color: red !important;
-  color: white !important;
+
+.modal-book-header > h2 {
+  font-size: 2.5rem;
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  background: none;
 }
 
 .delete-dialog-title {
@@ -25,4 +39,33 @@
   font-weight: 700;
   color: #ffffff;
   font-style: italic;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal-actions button {
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.4rem;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-actions button:first-child {
+  background-color: #444;
+  color: #eee;
+}
+
+.modal-actions button:last-child {
+  background-color: #4ade80;
+  color: #000;
+}
+
+.accept-delete-btn {
+  background-color: red !important;
+  color: #fff !important;
 }

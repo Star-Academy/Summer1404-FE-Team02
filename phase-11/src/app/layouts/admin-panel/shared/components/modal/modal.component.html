@@ -5,7 +5,7 @@
   role="button"
   aria-label="Close modal"
   (keydown.escape)="onClose()"
-  (click)="onCloseModalOverlay()"
+  (click)="onCloseModalOverlay($event)"
 >
   <div class="modal">
     <ng-content></ng-content>

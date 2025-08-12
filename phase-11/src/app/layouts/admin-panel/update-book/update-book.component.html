@@ -1,52 +1,50 @@
-<app-modal [onClose]="onClose" [onCloseModalOverlay]="onCloseModalOverlay">
-  <div class="modal">
-    <div class="modal-book-header">
-      <h2>Edit Book</h2>
-      <button class="modal-close" (click)="onClose()">
-        <svg
-          width="20px"
-          height="20px"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z"
-            fill="#ffffff"
-          />
-        </svg>
-      </button>
-    </div>
-    <form (submit)="onUpdateBook()" class="modal-book__form">
-      <label>
-        <span class="modal-book__form__label">Name:</span>
-        <input type="text" [ngModel]="book().name" (input)="onChangeInput($event)" name="name"/>
-      </label>
-      <label>
-        <span class="modal-book__form__label">Image (link):</span>
-        <input type="text" [ngModel]="book().image" (input)="onChangeInput($event)" name="image"/>
-      </label>
-      <label>
-        <span class="modal-book__form__label">Genre:</span>
-        <input type="text" [ngModel]="book().genre" (input)="onChangeInput($event)" name="genre"/>
-      </label>
-      <label>
-        <span class="modal-book__form__label">Author:</span>
-        <input type="text" [ngModel]="book().author" (input)="onChangeInput($event)" name="author"/>
-      </label>
-      <label>
-        <span class="modal-book__form__label">Publish date:</span>
-        <input type="date" [ngModel]="book().publishDate" (input)="onChangeInput($event)" name="publishDate"/>
-      </label>
-      <label>
-        <span class="modal-book__form__label">Price:</span>
-        <input type="number" [ngModel]="book().price" (input)="onChangeInput($event)" name="price"/>
-      </label>
-      <div class="modal-actions">
-        <button type="button" (click)="onClose()">Cancel</button>
-        <button type="submit">Save</button>
-      </div>
-    </form>
+<app-modal (close)="onClose()">
+  <div class="modal-book-header">
+    <h2>Edit Book</h2>
+    <button class="modal-close" (click)="onClose()">
+      <svg
+        width="20px"
+        height="20px"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z"
+          fill="#ffffff"
+        />
+      </svg>
+    </button>
   </div>
+  <form (submit)="onUpdateBook()" class="modal-book__form">
+    <label>
+      <span class="modal-book__form__label">Name:</span>
+      <input type="text" [ngModel]="book().name" (input)="onChangeInput($event)" name="name"/>
+    </label>
+    <label>
+      <span class="modal-book__form__label">Image (link):</span>
+      <input type="text" [ngModel]="book().image" (input)="onChangeInput($event)" name="image"/>
+    </label>
+    <label>
+      <span class="modal-book__form__label">Genre:</span>
+      <input type="text" [ngModel]="book().genre" (input)="onChangeInput($event)" name="genre"/>
+    </label>
+    <label>
+      <span class="modal-book__form__label">Author:</span>
+      <input type="text" [ngModel]="book().author" (input)="onChangeInput($event)" name="author"/>
+    </label>
+    <label>
+      <span class="modal-book__form__label">Publish date:</span>
+      <input type="date" [ngModel]="book().publishDate" (input)="onChangeInput($event)" name="publishDate"/>
+    </label>
+    <label>
+      <span class="modal-book__form__label">Price:</span>
+      <input type="number" [ngModel]="book().price" (input)="onChangeInput($event)" name="price"/>
+    </label>
+    <div class="modal-actions">
+      <button type="button" (click)="onClose()">Cancel</button>
+      <button type="submit">Save</button>
+    </div>
+  </form>
 </app-modal>

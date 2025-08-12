@@ -1,5 +1,5 @@
 import {Component, inject, signal} from '@angular/core';
-import {BookService} from '../../services/book.service';
+import {BookService} from '../../shared/services/book.service';
 import {toSignal} from '@angular/core/rxjs-interop';
 
 @Component({

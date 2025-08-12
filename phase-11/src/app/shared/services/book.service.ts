@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Book} from '../pages/home/books/books.model';
-import {BOOKS} from '../pages/home/books/DUMMY_BOOKS';
+import {Book} from '../../layouts/main/pages/home/components/books/books.model';
+import {BOOKS} from '../../layouts/main/pages/home/components/books/DUMMY_BOOKS';
 import {BehaviorSubject, map, Observable} from 'rxjs';
 
 @Injectable({

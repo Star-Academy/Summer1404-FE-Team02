@@ -9,8 +9,8 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { BookService } from '../../../services/book.service';
-import { Book } from '../../../pages/home/books/books.model';
+import { BookService } from '../../../shared/services/book.service';
+import { Book } from '../../main/pages/home/components/books/books.model';
 
 @Component({
   selector: 'app-delete-dialog',

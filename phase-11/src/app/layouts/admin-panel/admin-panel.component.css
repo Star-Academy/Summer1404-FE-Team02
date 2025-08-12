@@ -138,9 +138,8 @@ button {
   border-radius: 0.6rem;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform 0.2s ease,
+  box-shadow 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,6 +167,7 @@ button {
   width: 4rem;
   height: 4rem;
   cursor: pointer;
+  fill: red;
 }
 
 .add-book__edit-btn {
@@ -191,6 +191,7 @@ button {
     padding-inline: 2rem;
   }
 }
+
 @media screen and (max-width: 500px) {
   .table-wrapper {
     padding-inline: 1rem;

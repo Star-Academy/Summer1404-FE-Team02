@@ -1,5 +1,5 @@
 import {Component, inject, input, OnInit, signal} from '@angular/core';
-import {BookService} from '../../../services/book.service';
+import {BookService} from '../../../../../../shared/services/book.service';
 import {BookCardComponent} from './book-card/book-card.component';
 import {SearchBooksPipe} from "./search-books.pipe";
 import {Book} from "./books.model";

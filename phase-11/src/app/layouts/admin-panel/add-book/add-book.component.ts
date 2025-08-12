@@ -1,6 +1,6 @@
 import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BookService } from '../../../services/book.service';
+import { BookService } from '../../../shared/services/book.service';
 
 @Component({
   selector: 'app-add-book',

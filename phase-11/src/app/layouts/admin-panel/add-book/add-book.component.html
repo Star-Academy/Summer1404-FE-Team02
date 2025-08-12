@@ -1,9 +1,4 @@
-<div
-  class="modal-overlay"
-  (click)="onCloseModal($event)"
-  (keydown.escape)="onClose()"
-  tabindex="0"
->
+<app-modal [onClose]="onClose" [onCloseModalOverlay]="onCloseModal">
   <div class="modal">
     <div class="modal-book-header">
       <h2>Add Book</h2>
@@ -26,27 +21,27 @@
     <form (submit)="addBook()" class="modal-book__form">
       <label>
         <span class="modal-book__form__label">Name:</span>
-        <input type="text" [(ngModel)]="name" name="name" />
+        <input type="text" [(ngModel)]="name" name="name"/>
       </label>
       <label>
         <span class="modal-book__form__label">Image (link):</span>
-        <input type="text" [(ngModel)]="image" name="image" />
+        <input type="text" [(ngModel)]="image" name="image"/>
       </label>
       <label>
         <span class="modal-book__form__label">Genre:</span>
-        <input type="text" [(ngModel)]="genre" name="genre" />
+        <input type="text" [(ngModel)]="genre" name="genre"/>
       </label>
       <label>
         <span class="modal-book__form__label">Author:</span>
-        <input type="text" [(ngModel)]="author" name="author" />
+        <input type="text" [(ngModel)]="author" name="author"/>
       </label>
       <label>
         <span class="modal-book__form__label">Publish date:</span>
-        <input type="date" [(ngModel)]="publishDate" name="publish-date" />
+        <input type="date" [(ngModel)]="publishDate" name="publish-date"/>
       </label>
       <label>
         <span class="modal-book__form__label">Price:</span>
-        <input type="number" [(ngModel)]="price" name="price" />
+        <input type="number" [(ngModel)]="price" name="price"/>
       </label>
       <div class="modal-actions">
         <button type="button" (click)="onClose()">Cancel</button>
@@ -54,4 +49,4 @@
       </div>
     </form>
   </div>
-</div>
+</app-modal>

@@ -1,0 +1,20 @@
+<nav class="book-toolbar">
+  <div class="sort-wrapper">
+    <label for="book-sort">Sort by:</label>
+    <select id="book-sort" name="sort">
+      <option value="" disabled selected>Select an option</option>
+      <option value="oldest">Oldest</option>
+      <option value="newest">Newest</option>
+      <option value="most-expensive">Most Expensive</option>
+      <option value="cheapest">Cheapest</option>
+    </select>
+  </div>
+
+  <input
+    type="text"
+    placeholder="Search..."
+    [(ngModel)]="search"
+    name="search"
+    (input)="searchBook()"
+  />
+</nav>

@@ -1,0 +1,37 @@
+<section class="book-detail">
+  <div class="book-detail__image-wrapper">
+    <img
+      class="book-detail__image"
+      [src]="book.image"
+      [alt]="book.name"
+      loading="lazy"
+      width="300px"
+      height="450px"
+    />
+  </div>
+
+  <div class="book-detail__content">
+    <h1 class="book-detail__title">{{ book.name }}</h1>
+    <p class="book-detail__author">By {{ book.author }}</p>
+
+    <div class="book-detail__genres">
+      @for (genre of book.genre; track genre) {
+        <span>{{ genre }}</span>
+      }
+    </div>
+
+    <p class="book-detail__publish-date">
+      Published:
+      <time [attr.datetime]="book.publishDate">{{ formattedDate }}</time>
+    </p>
+
+    <p class="book-detail__price">
+      Price: <strong>${{ book.price }}</strong>
+    </p>
+
+    <p class="book-detail__description">
+      This is a placeholder for a more detailed description of the book. You can
+      add summary, tags, reviews, or more here.
+    </p>
+  </div>
+</section>

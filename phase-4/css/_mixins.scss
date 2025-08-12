@@ -1,0 +1,11 @@
+@mixin grid-layout-sections($bg) {
+  background-color: $bg;
+  text-align: center;
+  height: 7rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 1/ span 6;
+
+}

@@ -35,7 +35,7 @@ export class AddBookComponent {
       image: this.image,
       genre: [...this.genre.split(',')],
       author: this.name,
-      publishData: new Date(this.publishDate).toISOString().split('T')[0],
+      publishDate: new Date(this.publishDate).toISOString().split('T')[0],
       price: this.price
     };
 

@@ -1,4 +1,4 @@
-import {Component, OnInit, inject, signal} from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from '../home/components/books/books.model';
 import { BookService } from '../../../../shared/services/book.service';
@@ -7,7 +7,7 @@ import { BookService } from '../../../../shared/services/book.service';
   selector: 'app-book-detail',
   templateUrl: './book-detail.component.html',
   styleUrls: ['./book-detail.component.css'],
-  standalone: true,
+  standalone: true
 })
 export class BookDetailComponent implements OnInit {
   private router = inject(Router);
@@ -24,8 +24,7 @@ export class BookDetailComponent implements OnInit {
       this.booksService.selectBookById(this.bookId).subscribe(book => {
         if (book) {
           this.book.set(book);
-        }
-        else {
+        } else {
           this.router.navigate(['/'], { replaceUrl: true });
         }
       });
@@ -33,10 +32,10 @@ export class BookDetailComponent implements OnInit {
   }
 
   get formattedDate(): string {
-    return new Date(this.book().publishData).toLocaleDateString('en-US', {
+    return new Date(this.book().publishDate).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
-      day: 'numeric',
+      day: 'numeric'
     });
   }
 }

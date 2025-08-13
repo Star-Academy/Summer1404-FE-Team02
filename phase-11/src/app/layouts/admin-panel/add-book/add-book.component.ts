@@ -1,13 +1,14 @@
-import {Component, EventEmitter, inject, Output} from '@angular/core';
+import {Component, inject, output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {BookService} from '../../../shared/services/book.service';
 import {ModalComponent} from '../shared/components/modal/modal.component';
 import {BookHttpService} from '../../../shared/services/book-http.service';
+import {CloseIconComponent} from "../../../shared/svg/icon/close-button/close-icon.component";
 
 @Component({
   selector: 'app-add-book',
   standalone: true,
-  imports: [FormsModule, ModalComponent],
+  imports: [FormsModule, ModalComponent, CloseIconComponent],
   templateUrl: './add-book.component.html',
   styleUrl: './add-book.component.css'
 })
@@ -22,7 +23,7 @@ export class AddBookComponent {
   public publishDate = '';
   public price = 0;
 
-  @Output() closeModal = new EventEmitter();
+  closeModal = output();
 
   public onClose() {
     this.closeModal.emit();

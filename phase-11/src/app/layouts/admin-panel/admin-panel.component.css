@@ -1,40 +1,45 @@
 .table-wrapper {
-  width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #121212;
+  gap: 2rem;
+
+  inline-size: 100%;
+  min-block-size: 100vh;
   padding-inline: 10rem;
   padding-block: 5rem;
-  gap: 2rem;
   box-sizing: border-box;
   overflow: hidden;
+
+  background-color: #121212;
 }
 
 .table-container {
+  inline-size: 100%;
   border: 0.1rem solid #444;
   border-radius: 0.4rem;
   overflow: auto;
+
   background-color: #1a1a1a;
   box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.3);
-  width: 100%;
 }
 
 .table-container::-webkit-scrollbar {
-  width: 0.8rem;
-  height: 0.8rem;
+  inline-size: 0.8rem;
+  block-size: 0.8rem;
 }
 
 .table-container::-webkit-scrollbar-track {
-  background: #2a2a2a;
   border-radius: 0.4rem;
+
+  background: #2a2a2a;
 }
 
 .table-container::-webkit-scrollbar-thumb {
-  background: #555;
   border-radius: 0.4rem;
+
+  background: #555;
 }
 
 .table-container::-webkit-scrollbar-thumb:hover {
@@ -42,24 +47,28 @@
 }
 
 table {
-  width: 100%;
+  inline-size: 100%;
   border-collapse: collapse;
+
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.4rem;
+
   background-color: #1a1a1a;
 }
 
 thead {
-  background-color: #333;
-  color: #fff;
   position: sticky;
   top: 0;
   z-index: 10;
+
+  background-color: #333;
+  color: #fff;
 }
 
 th {
   padding: 1.5rem 1.2rem;
   border: 0.1rem solid #555;
+
   text-align: left;
   font-weight: 600;
   text-transform: uppercase;
@@ -70,9 +79,10 @@ th {
 td {
   padding: 1.2rem;
   border: 0.1rem solid #333;
+  vertical-align: middle;
+
   text-align: left;
   color: #e0e0e0;
-  vertical-align: middle;
 }
 
 tbody tr {
@@ -84,8 +94,9 @@ tbody tr:nth-child(even) {
 }
 
 tbody tr:hover {
-  background-color: #2a2a2a;
   cursor: pointer;
+
+  background-color: #2a2a2a;
 }
 
 td:last-child {
@@ -96,86 +107,92 @@ td:last-child {
 
 th:nth-child(1),
 td:nth-child(1) {
-  width: 8%;
-  min-width: 6rem;
+  inline-size: 8%;
+  min-inline-size: 6rem;
 }
 
 th:nth-child(2),
 td:nth-child(2) {
-  width: 40%;
-  min-width: 20rem;
+  inline-size: 40%;
+  min-inline-size: 20rem;
 }
 
 th:nth-child(3),
 td:nth-child(3) {
-  width: 35%;
-  min-width: 15rem;
+  inline-size: 35%;
+  min-inline-size: 15rem;
 }
 
 th:nth-child(4),
 td:nth-child(4) {
-  width: 17%;
-  min-width: 10rem;
+  inline-size: 17%;
+  min-inline-size: 10rem;
 }
 
 button {
-  width: 8rem;
-  height: 4rem;
+  inline-size: 8rem;
+  block-size: 4rem;
   border-radius: 0.6rem;
 }
 
 .panel-btn {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   align-self: end;
+
+  inline-size: 100%;
 }
 
 .return-btn {
-  border: none;
-  border-radius: 0.6rem;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease,
-  box-shadow 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 3rem;
-  height: 3rem;
+
+  inline-size: 3rem;
+  block-size: 3rem;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+
+  box-shadow: 0 2rem 8rem rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease,
+  box-shadow 0.2s ease;
 }
 
 .return-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4rem 12rem rgba(0, 0, 0, 0.15);
   background-color: rgba(255, 255, 255, 0.2);
 }
 
 .add-book__btn {
-  background-color: #4ade80;
+  inline-size: 12rem;
   outline: none;
   cursor: pointer;
   border: none;
-  width: 12rem;
+
+  background-color: #4ade80;
 }
 
 .add-book__delete-btn {
+  inline-size: 4rem;
+  block-size: 4rem;
   border: 1px solid red;
-  background-color: rgba(255, 0, 0, 5%);
-  width: 4rem;
-  height: 4rem;
   cursor: pointer;
+
+  background-color: rgba(255, 0, 0, 5%);
   fill: red;
 }
 
 .add-book__edit-btn {
-  border: 1px solid rgb(59, 130, 246);
-  background-color: rgba(59, 130, 246, 10%);
-  width: 4rem;
-  height: 4rem;
+  inline-size: 4rem;
+  block-size: 4rem;
   cursor: pointer;
+  border: 1px solid rgb(59, 130, 246);
+
+  background-color: rgba(59, 130, 246, 10%);
 }
 
 .return-btn {

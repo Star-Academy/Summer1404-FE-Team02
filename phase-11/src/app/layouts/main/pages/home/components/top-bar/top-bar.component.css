@@ -1,5 +1,5 @@
 :host .book-toolbar {
-  width: 100%;
+  inline-size: 100%;
   margin-top: 2rem;
   padding: 0 2rem;
 
@@ -11,27 +11,27 @@
 }
 
 :host .book-toolbar input {
-  height: 4rem;
-  font-size: 1.6rem;
+  block-size: 4rem;
+  inline-size: 60rem;
   padding: 1rem;
   border-radius: 0.5rem;
-  width: 60rem;
-  max-width: 100%;
+  max-inline-size: 100%;
   outline: none;
 
+  font-size: 1.6rem;
   background-color: transparent;
   color: white;
   border: 0.1rem solid #444;
 }
 
 :host .book-toolbar select {
-  height: 4rem;
-  font-size: 1.6rem;
+  block-size: 4rem;
   padding: 1rem;
   border-radius: 0.5rem;
-  width: 20rem;
-  max-width: 100%;
+  inline-size: 20rem;
+  max-inline-size: 100%;
 
+  font-size: 1.6rem;
   background-color: #0e0e0e;
   color: white;
   border: 0.1rem solid #444;
@@ -40,6 +40,7 @@
 :host .book-toolbar label {
   margin-right: 0.5rem;
   font-size: 1.4rem;
+
   color: #ccc;
 }
 

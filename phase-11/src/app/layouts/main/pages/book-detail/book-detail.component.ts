@@ -17,7 +17,7 @@ export class BookDetailComponent implements OnInit {
   private bookId: string | null = null;
   public book = signal<Book>({} as Book);
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.bookId = this.route.snapshot.paramMap.get('bookId');
 
     if (this.bookId) {
@@ -32,8 +32,8 @@ export class BookDetailComponent implements OnInit {
     }
   }
 
-  get formattedDate(): string {
-    return new Date(this.book().publishData).toLocaleDateString('en-US', {
+  public get formattedDate(): string {
+    return new Date(this.book().publishDate).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'short',
       day: 'numeric',

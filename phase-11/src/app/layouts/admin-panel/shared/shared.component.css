@@ -1,25 +1,29 @@
 .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 2000;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  inline-size: 100vw;
+  block-size: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .modal {
-  background-color: #1e1e1e;
-  color: #fff;
+  position: relative;
+
   border-radius: 0.8rem;
   padding: 2rem;
-  width: 90%;
-  max-width: 50rem;
+  inline-size: 90%;
+  max-inline-size: 50rem;
+
+  background-color: #1e1e1e;
+  color: #fff;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
-  position: relative;
 }
 
 .modal h2 {
@@ -34,12 +38,13 @@
 }
 
 .modal input {
-  width: 100%;
+  inline-size: 100%;
   padding: 0.8rem;
-  background-color: #2a2a2a;
   border: 0.1rem solid #444;
   border-radius: 0.4rem;
+
   color: #fff;
+  background-color: #2a2a2a;
 }
 
 .modal-actions {
@@ -78,17 +83,20 @@
 }
 
 .modal-book__form__label {
-  margin-bottom: 0.5rem;
   display: block;
+
+  margin-bottom: 0.5rem;
 }
 
 .modal-close {
   display: flex;
   align-items: center;
   justify-content: center;
+
   border: none;
   cursor: pointer;
-  width: fit-content;
-  height: fit-content;
+  inline-size: fit-content;
+  block-size: fit-content;
+
   background: none;
 }

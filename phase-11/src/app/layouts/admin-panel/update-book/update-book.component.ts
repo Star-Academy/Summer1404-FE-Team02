@@ -23,7 +23,7 @@ export class UpdateBookComponent implements OnInit {
   private readonly bookService = inject(BookService);
   private readonly bookHttpService = inject(BookHttpService);
 
-  public id = input<string>('');
+  public id = input.required<string>();
   public closeModal = output();
 
   public book = signal<Book>({} as Book);

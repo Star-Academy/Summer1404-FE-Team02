@@ -1,12 +1,12 @@
-import {inject, Injectable} from '@angular/core';
-import {Book} from "../../layouts/main/pages/home/components/books/books.model";
-import {Observable} from "rxjs";
-import {HttpClient} from "@angular/common/http";
+import { inject, Injectable } from '@angular/core';
+import { Book } from '../../layouts/main/pages/home/components/books/books.model';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HttpService {
+export class BookHttpService {
   private readonly baseUrl = 'http://127.0.0.1:5000/';
   private http = inject(HttpClient);
 
@@ -14,7 +14,7 @@ export class HttpService {
     return this.http.get<Book>(`${this.baseUrl}`);
   }
 
-  public getBook(): Observable<Book[]> {
+  public getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(`${this.baseUrl}books`);
   }
 

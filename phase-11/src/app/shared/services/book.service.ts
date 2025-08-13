@@ -1,25 +1,25 @@
-import {inject, Injectable} from '@angular/core';
-import {Book} from '../../layouts/main/pages/home/components/books/books.model';
-import {BOOKS} from '../../layouts/main/pages/home/components/books/DUMMY_BOOKS';
-import {BehaviorSubject, map, Observable} from 'rxjs';
-import {HttpService} from "./http.service";
-import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
+import { inject, Injectable } from '@angular/core';
+import { Book } from '../../layouts/main/pages/home/components/books/books.model';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { BookHttpService } from './book-http.service';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class BookService {
-  private readonly httpService = inject(HttpService);
+  private readonly httpService = inject(BookHttpService);
   public booksFlow = new BehaviorSubject<Book[]>([]);
 
   constructor() {
-    // const storedBooks = localStorage.getItem('booksSource');
-    // this.booksSource = storedBooks ? JSON.parse(storedBooks) : BOOKS;
-    // this.booksFlow.next(this.booksSource);
+    this.loadBooks();
+  }
+
+  public loadBooks() {
+    this.httpService.getBooks().subscribe(books => this.booksFlow.next(books));
   }
 
   public getBooks(): Observable<Book[]> {
-    return this.httpService.getBook();
+    return this.booksFlow.asObservable();
   }
 
   public selectBookById(bookId: string): Observable<Book> {
@@ -31,9 +31,7 @@ export class BookService {
   }
 
   public addBook(bookData: Book) {
-    this.httpService.createBook(bookData).subscribe(() => {
-      next: (value: Book) => console.log(value)
-    });
+    return this.httpService.createBook(bookData).pipe;
   }
 
   public updateBook(updatedBook: Book) {

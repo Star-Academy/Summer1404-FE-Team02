@@ -1,8 +1,8 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BookService } from '../../../shared/services/book.service';
-import { ModalComponent } from '../shared/components/modal/modal.component';
-import { BookHttpService } from '../../../shared/services/book-http.service';
+import {Component, EventEmitter, inject, Output} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {BookService} from '../../../shared/services/book.service';
+import {ModalComponent} from '../shared/components/modal/modal.component';
+import {BookHttpService} from '../../../shared/services/book-http.service';
 
 @Component({
   selector: 'app-add-book',
@@ -35,7 +35,7 @@ export class AddBookComponent {
       image: this.image,
       genre: [...this.genre.split(',')],
       author: this.name,
-      publishDate: new Date(this.publishDate).toISOString().split('T')[0],
+      publishData: new Date(this.publishDate).toISOString().split('T')[0],
       price: this.price
     };
 

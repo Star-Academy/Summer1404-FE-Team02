@@ -9,6 +9,7 @@ import {
 import { BookService } from '../../../shared/services/book.service';
 import { Book } from '../../main/pages/home/components/books/books.model';
 import { ModalComponent } from '../shared/components/modal/modal.component';
+import {BookHttpService} from "../../../shared/services/book-http.service";
 
 @Component({
   selector: 'app-delete-dialog',
@@ -22,13 +23,16 @@ import { ModalComponent } from '../shared/components/modal/modal.component';
 
 export class DeleteDialogComponent implements OnInit {
   private bookService = inject(BookService);
+  private bookHttpService = inject(BookHttpService);
   public id = input<string>('');
   public closeModal = output<void>();
   public book = signal<Book | null>(null);
 
 
   public onDelete() {
-    this.bookService.deleteBook(this.id());
+    this.bookHttpService.deleteBook(this.id()).subscribe({
+      next: () => this.bookService.loadBooks()
+    })
     this.onClose();
   }
 
@@ -37,6 +41,8 @@ export class DeleteDialogComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.bookService.selectBookById(this.id()).subscribe(book => this.book.set(book));
+    this.bookHttpService.getBookById(this.id()).subscribe({
+      next: (book: Book) => this.book.set(book)
+    })
   }
 }

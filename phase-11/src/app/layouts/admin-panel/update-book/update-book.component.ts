@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { BookService } from '../../../shared/services/book.service';
 import { Book } from '../../main/pages/home/components/books/books.model';
 import { ModalComponent } from '../shared/components/modal/modal.component';
+import {BookHttpService} from "../../../shared/services/book-http.service";
 
 @Component({
   selector: 'app-update-book',
@@ -20,6 +21,8 @@ import { ModalComponent } from '../shared/components/modal/modal.component';
 })
 export class UpdateBookComponent implements OnInit {
   private readonly bookService = inject(BookService);
+  private readonly bookHttpService = inject(BookHttpService);
+
   public id = input<string>('');
   public closeModal = output();
 
@@ -32,7 +35,10 @@ export class UpdateBookComponent implements OnInit {
 
 
   public onUpdateBook() {
-    this.bookService.updateBook(this.book()!);
+    this.bookHttpService.updateBook(this.book()).subscribe({
+      next: () => this.bookService.loadBooks()
+    })
+
     this.closeModal.emit();
   }
 
@@ -43,9 +49,9 @@ export class UpdateBookComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.bookService
-      .selectBookById(this.id())
+  public ngOnInit() {
+    this.bookHttpService
+      .getBookById(this.id())
       .subscribe((book) => this.book.set(book));
   }
 }

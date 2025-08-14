@@ -1,0 +1,22 @@
+<app-modal>
+  <div class="modal-book-header">
+    <p class="delete-dialog-title">
+      <span>Delete book</span> <span class="truncate">"{{ book()?.name }}"</span> ?
+    </p>
+    <button class="modal-close" (click)="onClose()">
+      <app-close-icon />
+    </button>
+  </div>
+  <div class="modal-actions">
+    <div style="display: flex; gap: 1rem">
+      <button type="button" (click)="onClose()">Cancel</button>
+      <button
+        type="button"
+        (click)="onDelete()"
+        class="accept-delete-btn"
+      >
+        Ok
+      </button>
+    </div>
+  </div>
+</app-modal>

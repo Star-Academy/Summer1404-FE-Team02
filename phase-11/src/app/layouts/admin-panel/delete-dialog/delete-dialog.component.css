@@ -1,0 +1,77 @@
+.modal-book-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 4rem;
+}
+
+.modal-book-header > h2 {
+  font-size: 2.5rem;
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  cursor: pointer;
+  inline-size: fit-content;
+  block-size: fit-content;
+
+  background: none;
+}
+
+.delete-dialog-title {
+  display: flex;
+  text-align: center;
+  gap: 0 0.5rem;
+
+  inline-size: calc(100% - 40px);
+
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #e5e5e5;
+}
+
+.delete-dialog-title > span:first-child {
+  flex-shrink: 0;
+}
+
+.delete-dialog-title > span:last-child {
+  font-weight: 700;
+  color: #ffffff;
+  font-style: italic;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+
+  margin-top: 1rem;
+}
+
+.modal-actions button {
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.4rem;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-actions button:first-child {
+  background-color: #444;
+  color: #eee;
+}
+
+.modal-actions button:last-child {
+  background-color: #4ade80;
+  color: #000;
+}
+
+.accept-delete-btn {
+  background-color: red !important;
+  color: #fff !important;
+}

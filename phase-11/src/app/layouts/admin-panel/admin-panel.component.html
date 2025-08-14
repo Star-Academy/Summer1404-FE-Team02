@@ -1,0 +1,105 @@
+@if (isAddModalOpen()) {
+  <app-add-book (closeModal)="changeAddModalStatus()"/>
+}
+@if (isEditModalOpen()) {
+  <app-update-book (closeModal)="changeEditModalStatus()" [id]="selectedBookId()"/>
+}
+@if (isDeleteDialogOpen()) {
+  <app-delete-dialog (closeModal)="changeDeleteDialogStatus()" [id]="selectedBookId()" />
+}
+@if (isDeleteSuccess()) {
+  <app-success-delete-toast (dismissed)="onDeleteSuccess($event)"/>
+}
+
+<div class="table-wrapper modal-backdrop">
+  <div class="panel-btn">
+    <button class="return-btn" [routerLink]="['/']" aria-label="Go back">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="48"
+          d="M244 400 100 256l144-144M120 256h292"
+        />
+      </svg>
+    </button>
+
+    <button (click)="changeAddModalStatus()" class="add-book__btn">
+      Add book
+    </button>
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Genre</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      @if (books().length) {
+        <tbody>
+          @for (book of books(); track book.id) {
+            <tr>
+              <td>{{ book.id }}</td>
+              <td>{{ book.name }}</td>
+              <td>{{ book.genre }}</td>
+              <td>$ {{ book.price }}</td>
+              <td style="text-align: center; display: flex; gap: 1rem">
+                <button
+                  type="button"
+                  class="add-book__edit-btn"
+                  (click)="onEditBook(book.id)"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M20.9888 4.28491L19.6405 2.93089C18.4045 1.6897 16.4944 1.6897 15.2584 2.93089L13.0112 5.30042L18.7416 11.055L21.1011 8.68547C21.6629 8.1213 22 7.33145 22 6.54161C22 5.75176 21.5506 4.84908 20.9888 4.28491Z"
+                      fill="#3b82f6"
+                    />
+                    <path
+                      d="M16.2697 10.9422L11.7753 6.42877L2.89888 15.3427C2.33708 15.9069 2 16.6968 2 17.5994V21.0973C2 21.5487 2.33708 22 2.89888 22H6.49438C7.2809 22 8.06742 21.6615 8.74157 21.0973L17.618 12.1834L16.2697 10.9422Z"
+                      fill="#3b82f6"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="add-book__delete-btn"
+                  (click)="setSelectedDeleteId(book.id)"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="Layer_1"
+                    width="17"
+                    height="17"
+                    viewBox="0 0 512 512"
+                  >
+                    <path
+                      d="M465.423 48.241h-137.61V23.955C327.813 10.746 317.082 0 303.893 0h-95.785c-13.19 0-23.92 10.746-23.92 23.955V48.24H46.577c-6.655 0-12.049 5.394-12.049 12.049s5.394 12.049 12.049 12.049h22.332l15.228 396.396A44.86 44.86 0 0 0 129.099 512h253.804a44.855 44.855 0 0 0 44.96-43.267l15.228-396.396h22.332c6.653 0 12.049-5.394 12.049-12.049 0-6.653-5.394-12.047-12.049-12.047M208.285 24.097h95.43V48.24h-95.43zm195.499 443.712a20.833 20.833 0 0 1-20.882 20.094H129.099a20.835 20.835 0 0 1-20.882-20.095L93.025 72.338h325.952z"
+                    ></path>
+                    <path
+                      d="M182.63 181.571c-.127-6.575-5.494-11.817-12.042-11.817q-.118 0-.236.002c-6.652.128-11.943 5.626-11.815 12.278l3.781 196.634c.126 6.575 5.495 11.817 12.042 11.817q.118 0 .236-.002c6.653-.128 11.943-5.624 11.815-12.278zM255.998 169.753c-6.654 0-12.049 5.394-12.049 12.049v196.634c0 6.654 5.394 12.049 12.049 12.049s12.049-5.394 12.049-12.049V181.802c0-6.654-5.394-12.049-12.049-12.049M341.645 169.756c-6.628-.147-12.151 5.162-12.278 11.815l-3.781 196.634c-.129 6.653 5.162 12.15 11.815 12.278l.236.002c6.546 0 11.916-5.244 12.042-11.817l3.781-196.634c.128-6.654-5.161-12.151-11.815-12.278"
+                    ></path>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      } @else {
+        <tr>
+          <td colspan="5" style="text-align: center; color: gray"></td>
+        </tr>
+      }
+    </table>
+  </div>
+</div>

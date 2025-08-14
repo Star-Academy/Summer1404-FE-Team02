@@ -1,0 +1,102 @@
+.modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  inline-size: 100vw;
+  block-size: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+  position: relative;
+
+  border-radius: 0.8rem;
+  padding: 2rem;
+  inline-size: 90%;
+  max-inline-size: 50rem;
+
+  background-color: #1e1e1e;
+  color: #fff;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}
+
+.modal h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.modal input {
+  inline-size: 100%;
+  padding: 0.8rem;
+  border: 0.1rem solid #444;
+  border-radius: 0.4rem;
+
+  color: #fff;
+  background-color: #2a2a2a;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal-actions button {
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.4rem;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-actions button:first-child {
+  background-color: #444;
+  color: #eee;
+}
+
+.modal-actions button:last-child {
+  background-color: #4ade80;
+  color: #000;
+}
+
+.modal-book-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+.modal-book-header > h2 {
+  font-size: 2.5rem;
+}
+
+.modal-book__form__label {
+  display: block;
+
+  margin-bottom: 0.5rem;
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  cursor: pointer;
+  inline-size: fit-content;
+  block-size: fit-content;
+
+  background: none;
+}

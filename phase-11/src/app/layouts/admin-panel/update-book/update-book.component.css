@@ -1,0 +1,74 @@
+
+h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+input {
+  inline-size: 100%;
+  padding: 0.8rem;
+  border: 0.1rem solid #444;
+  border-radius: 0.4rem;
+
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal-actions button {
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.4rem;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-actions button:first-child {
+  background-color: #444;
+  color: #eee;
+}
+
+.modal-actions button:last-child {
+  background-color: #4ade80;
+  color: #000;
+}
+
+.modal-book-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+.modal-book-header > h2 {
+  font-size: 2.5rem;
+}
+
+.modal-book__form__label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  inline-size: fit-content;
+  block-size: fit-content;
+
+  border: none;
+  cursor: pointer;
+  background: none;
+}

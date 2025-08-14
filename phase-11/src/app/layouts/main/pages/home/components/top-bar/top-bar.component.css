@@ -1,0 +1,50 @@
+:host .book-toolbar {
+  inline-size: 100%;
+  margin-top: 2rem;
+  padding: 0 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+:host .book-toolbar input {
+  block-size: 4rem;
+  inline-size: 60rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  max-inline-size: 100%;
+  outline: none;
+
+  font-size: 1.6rem;
+  background-color: transparent;
+  color: white;
+  border: 0.1rem solid #444;
+}
+
+:host .book-toolbar select {
+  block-size: 4rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  inline-size: 20rem;
+  max-inline-size: 100%;
+
+  font-size: 1.6rem;
+  background-color: #0e0e0e;
+  color: white;
+  border: 0.1rem solid #444;
+}
+
+:host .book-toolbar label {
+  margin-right: 0.5rem;
+  font-size: 1.4rem;
+
+  color: #ccc;
+}
+
+:host .sort-wrapper {
+  display: flex;
+  align-items: center;
+}
